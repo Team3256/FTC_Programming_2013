@@ -26,11 +26,11 @@ float robotCircumference = track*2*pie;
 void moveForward(float inchesMoved, int motorSpeed){
 	float nticks = 0;
 	nticks = abs(inchesMoved * ticksPerInches);
-	//2nticks *= (24/26);
+	float nticks2 = nticks * 24 / 26;
 	nMotorEncoder[backLeftMotor] = 0;
 	writeDebugStreamLine("number of ticks that our robot has to move.");
-	writeDebugStreamLine("%d", nticks);
-	while (abs(nMotorEncoder[backLeftMotor]) < nticks){
+	writeDebugStreamLine("%d", nticks2);
+	while (abs(nMotorEncoder[backLeftMotor]) < nticks2){
 		//if (abs(nMotorEncoder[backLeftMotor]) < (nticks))
 		//{
 			motor[frontLeftMotor] = motorSpeed;
