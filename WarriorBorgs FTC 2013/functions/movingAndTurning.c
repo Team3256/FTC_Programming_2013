@@ -26,11 +26,11 @@ float robotCircumference = track*2*pie;
 void moveForward(float inchesMoved, int motorSpeed){
 	float nticks = 0;
 	nticks = abs(inchesMoved * ticksPerInches);
-	//2nticks *= (24/26);
+	float nticks2 = nticks * 22.5 / 26;
 	nMotorEncoder[backLeftMotor] = 0;
 	writeDebugStreamLine("number of ticks that our robot has to move.");
-	writeDebugStreamLine("%d", nticks);
-	while (abs(nMotorEncoder[backLeftMotor]) < nticks){
+	writeDebugStreamLine("%d", nticks2);
+	while (abs(nMotorEncoder[backLeftMotor]) < nticks2){
 		//if (abs(nMotorEncoder[backLeftMotor]) < (nticks))
 		//{
 			motor[frontLeftMotor] = motorSpeed;
@@ -59,10 +59,11 @@ void moveForward(float inchesMoved, int motorSpeed){
 void moveBackward(float inchesMoved, int motorSpeed){
 	float nticks = 0;
 	nticks =  abs(inchesMoved *ticksPerInches);
+	float nticks2 = nticks * 22.5 / 26;
 	writeDebugStreamLine("number of ticks that our robot has to move.");
 	writeDebugStreamLine("%d", nticks);
 	nMotorEncoder[backLeftMotor] = 0;
-	while(abs(nMotorEncoder[backLeftMotor]) < nticks){
+	while(abs(nMotorEncoder[backLeftMotor]) < nticks2){
 		motor[frontRightMotor] = -motorSpeed;
 		motor[frontLeftMotor] = -motorSpeed;
 		motor[backRightMotor] = -motorSpeed;
@@ -120,18 +121,22 @@ void leftTwoWheelTurn(int degreesMoved, int motorSpeed){
 // function that allows the robot to turn right with two wheels moving the opposite way.
 void  rightTwoWheelTurn(int degreesMoved, int motorSpeed){
 	float nticks = 0;
-	nticks = abs((degreesMoved*halfTrack)/(4*wheelRadius));
-	nMotorEncoder[frontLeftMotor]=0;
-	while(nMotorEncoder[frontLeftMotor] < nticks){
-		motor[frontRightMotor] = -motorSpeed;
+	float negMSpeed = -motorSpeed;
+	nticks = abs((degreesMoved*halfTrack)/(wheelRadius));
+	nMotorEncoder[backLeftMotor]=0;
+	while(nMotorEncoder[backLeftMotor] < nticks*8){
+		motor[frontRightMotor] = negMSpeed;
 		motor[frontLeftMotor] = motorSpeed;
-		motor[backRightMotor] = -motorSpeed;
+		motor[backRightMotor] = negMSpeed;
 		motor[backLeftMotor] = motorSpeed;
+		motorSpeed -= 0.005;
+		negMSpeed += 0.005;
+
 	}
 
 }
 
 task main()
 {
-	moveForward(24, 80);
+	rightTwoWheelTurn(90, 80);
 }

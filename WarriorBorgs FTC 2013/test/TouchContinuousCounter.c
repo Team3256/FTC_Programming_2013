@@ -8,8 +8,8 @@
 int count = 0;
 void rollerSuck()
 {
-	motor[rollerMotor] = 100;
-}
+	motor[rollerMotor] = -100;
+} /
 void rollerSpit()
 {
 	motor[rollerMotor] = -100;
@@ -64,7 +64,7 @@ task blockCountTrap222()
 }
 task moveConveyer()
 {
-	motor[conveyerMotor] = 100;
+	motor[conveyerMotor] = -100;
 	wait10Msec(200000);
 }
 task blockCountTime()

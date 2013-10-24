@@ -26,7 +26,7 @@ float robotCircumference = track*2*pie;
 void moveForward(float inchesMoved, int motorSpeed){
 	float nticks = 0;
 	nticks = abs(inchesMoved * ticksPerInches);
-	float nticks2 = nticks * 24 / 26;
+	float nticks2 = nticks * 23 / 26;
 	nMotorEncoder[backLeftMotor] = 0;
 	writeDebugStreamLine("number of ticks that our robot has to move.");
 	writeDebugStreamLine("%d", nticks2);
@@ -93,7 +93,7 @@ void leftOneWheelTurn(int degreesMoved, int motorSpeed){
 // function that allows the robot to turn right with  one wheel  stopped and one wheel moving.
 void rightOneWheelTurn(int degreesMoved, int motorSpeed){
 	float nticks =0;
-	nticks = abs((degreesMoved*track)/(wheelRadius*1440));
+	nticks = abs((degreesMoved*track)/(wheelRadius));
 	nMotorEncoder[frontRightMotor]=0;
 	while(nMotorEncoder[frontRightMotor] < nticks){
 		motor[frontRightMotor] = 0;
@@ -106,7 +106,7 @@ void rightOneWheelTurn(int degreesMoved, int motorSpeed){
 // function that allows the robot to turn left with two wheels moving the opposite way.
 void leftTwoWheelTurn(int degreesMoved, int motorSpeed){
 	float nticks =0;
-	nticks = abs((degreesMoved*halfTrack)/(4*wheelRadius));
+	nticks = abs((degreesMoved*halfTrack)/(wheelRadius));
 	nMotorEncoder[frontRightMotor]=0;
 	while(nMotorEncoder[frontRightMotor] < nticks){
 		motor[frontRightMotor] = motorSpeed;
@@ -120,7 +120,7 @@ void leftTwoWheelTurn(int degreesMoved, int motorSpeed){
 // function that allows the robot to turn right with two wheels moving the opposite way.
 void  rightTwoWheelTurn(int degreesMoved, int motorSpeed){
 	float nticks = 0;
-	nticks = abs((degreesMoved*halfTrack)/(4*wheelRadius));
+	nticks = abs((degreesMoved*halfTrack)/(wheelRadius));
 	nMotorEncoder[frontLeftMotor]=0;
 	while(nMotorEncoder[frontLeftMotor] < nticks){
 		motor[frontRightMotor] = -motorSpeed;
@@ -133,5 +133,5 @@ void  rightTwoWheelTurn(int degreesMoved, int motorSpeed){
 
 task main()
 {
-	moveForward(24, 80);
+	rightTwoWheelTurn(22.5, 80);
 }
