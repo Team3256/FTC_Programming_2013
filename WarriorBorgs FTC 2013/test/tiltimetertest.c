@@ -14,14 +14,14 @@ task main()
 	while(true)
 	{
 		//servoChangeRate[servo1] = 20;
-		servo[servo1] = 75*servoConversion;
-		wait10Msec(200);
+		servo[servo1] = 85*servoConversion;
+		wait10Msec(400);
 		servo[servo1] = 90*servoConversion;
-		wait10Msec(200);
-		servo[servo1] = 95*servoConversion;
-		wait10Msec(200);
+		wait10Msec(400);
+		servo[servo1] = 105*servoConversion;
+		wait10Msec(400);
 		servo[servo1] = 90*servoConversion;
-		wait10Msec(200);
+		wait10Msec(400);
 	}
 
 }
