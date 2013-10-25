@@ -148,5 +148,5 @@ void  rightTwoWheelTurn(int degreesMoved, int motorSpeed){
 
 task main()
 {
-	rightOneWheelTurn(90, 80);
+	moveBackward(24, 80);
 }
