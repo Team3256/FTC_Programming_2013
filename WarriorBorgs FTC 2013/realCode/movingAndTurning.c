@@ -1,4 +1,9 @@
 #pragma config(Hubs,  S1, HTMotor,  HTMotor,  HTMotor,  HTMotor)
+#pragma config(Sensor, S2,     irSensor,       sensorHiTechnicIRSeeker1200)
+#pragma config(Sensor, S3,     ultrasonicSensor, sensorSONAR)
+#pragma config(Sensor, S4,     lightSensor,    sensorLightInactive)
+#pragma config(Motor,  motorA,          conveyerMotor, tmotorNXT, PIDControl, encoder)
+#pragma config(Motor,  motorB,          rollerMotor,   tmotorNXT, PIDControl, encoder)
 #pragma config(Motor,  mtr_S1_C1_1,     backRightMotor, tmotorTetrix, openLoop, reversed, encoder)
 #pragma config(Motor,  mtr_S1_C1_2,     frontRightMotor, tmotorTetrix, openLoop, reversed)
 #pragma config(Motor,  mtr_S1_C2_1,     motorF,        tmotorTetrix, openLoop)
@@ -133,7 +138,7 @@ void  rightTwoWheelTurn(int degreesMoved, int motorSpeed){
 
 	float negMSpeed = -motorSpeed;
 	nticks = abs((degreesMoved*halfTrack)/(wheelRadius));
-	nticks= nticks*1.25 * 2 / 3;
+	nticks= nticks* 1.3 * 2/ 3;
 	nMotorEncoder[backLeftMotor]=0;
 	while(nMotorEncoder[backLeftMotor] < nticks){
 		motor[frontRightMotor] = negMSpeed;
@@ -145,6 +150,14 @@ void  rightTwoWheelTurn(int degreesMoved, int motorSpeed){
 
 	}
 
+}
+
+void stopMotors()
+{
+	motor[frontRightMotor] = 0;
+	motor[frontLeftMotor] = 0;
+	motor[backRightMotor] = 0;
+	motor[backLeftMotor] = 0;
 }
 
 /*task main()
