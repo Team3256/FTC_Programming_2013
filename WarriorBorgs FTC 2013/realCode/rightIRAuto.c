@@ -7,17 +7,18 @@
 #pragma config(Motor,  mtr_S1_C3_2,     motorI,        tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S1_C4_1,     backLeftMotor, tmotorTetrix, openLoop, encoder)
 #pragma config(Motor,  mtr_S1_C4_2,     frontLeftMotor, tmotorTetrix, openLoop)
-#include "C:\Users\VCS Robotics 4A\Documents\GitHub\FTC_Programming\WarriorBorgs FTC 2013\functions\movingAndTurning.c"
+
+#include "movingAndTurning.c"
 
 task main()
 {
-	/*
-	Autonomus code for the left side of the pendulum.
-	*/
+/*
+Autonomus code for the right side of the pendulum.
+*/
 
-	moveForward(6, 80);
-	rightTwoWheelTurn(45, 80);
-
-
-
+moveForward(6, 80);
+wait10Msec(100);
+rightOneWheelTurn(45, 80);
+wait10Msec(100);
+moveForward(5,80)
 }

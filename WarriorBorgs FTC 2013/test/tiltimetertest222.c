@@ -14,7 +14,7 @@ task main()
 	while(true)
 	{
 		//servoChangeRate[servo1] = 20;
-		servo[servo1] = 105*servoConversion;
+		servo[servo1] = 85*servoConversion;
 		wait10Msec(400);
 		/*servo[servo1] = 90*servoConversion;
 		wait10Msec(400);

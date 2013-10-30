@@ -9,7 +9,7 @@ int count = 0;
 void rollerSuck()
 {
 	motor[rollerMotor] = -100;
-} /
+}
 void rollerSpit()
 {
 	motor[rollerMotor] = -100;

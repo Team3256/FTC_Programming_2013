@@ -80,9 +80,10 @@ void moveBackward(float inchesMoved, int motorSpeed){
 // function that allows the robot to turn left with  one wheel  stopped and one wheel moving.
 void leftOneWheelTurn(int degreesMoved, int motorSpeed){
 	float nticks =0;
-	nticks = abs((degreesMoved*track)/(wheelRadius*4));
-	nMotorEncoder[backLeftMotor]=0;
-	while(nMotorEncoder[backLeftMotor] < nticks){
+	nticks = abs((degreesMoved*track)/(wheelRadius));
+	nticks *= 1.43850;
+	nMotorEncoder[backRightMotor]=0;
+	while(nMotorEncoder[backRightMotor] < nticks*8){
 		motor[frontRightMotor] = motorSpeed;
 		motor[frontLeftMotor] = 0;
 		motor[backRightMotor] = motorSpeed;
@@ -96,7 +97,7 @@ void leftOneWheelTurn(int degreesMoved, int motorSpeed){
 void rightOneWheelTurn(int degreesMoved, int motorSpeed){
 	float nticks =0;
 	nticks = abs((degreesMoved*track)/(wheelRadius));
-	nticks *= 1.28;
+	nticks *= 1.43850;
 	nMotorEncoder[backLeftMotor]=0;
 	while(nMotorEncoder[backLeftMotor] < nticks*8){
 		motor[frontRightMotor] = 0;
@@ -112,9 +113,9 @@ void leftTwoWheelTurn(int degreesMoved, int motorSpeed){
 	float nticks =0;
 	float negMSpeed = -motorSpeed;
 	nticks = abs((degreesMoved*halfTrack)/(wheelRadius));
-	nticks = nticks*1.2;
+	nticks = nticks * 0.75 *2 / 3;
 	nMotorEncoder[backLeftMotor]=0;
-	while(abs(nMotorEncoder[backLeftMotor]) < nticks*8){
+	while(abs(nMotorEncoder[backLeftMotor]) < nticks*4){
 		motor[frontRightMotor] = motorSpeed;
 		motor[frontLeftMotor] = negMSpeed;
 		motor[backRightMotor] = motorSpeed;
@@ -132,9 +133,9 @@ void  rightTwoWheelTurn(int degreesMoved, int motorSpeed){
 
 	float negMSpeed = -motorSpeed;
 	nticks = abs((degreesMoved*halfTrack)/(wheelRadius));
-	nticks= nticks*1.45;
+	nticks= nticks*1.25 * 2 / 3;
 	nMotorEncoder[backLeftMotor]=0;
-	while(nMotorEncoder[backLeftMotor] < nticks*8){
+	while(nMotorEncoder[backLeftMotor] < nticks){
 		motor[frontRightMotor] = negMSpeed;
 		motor[frontLeftMotor] = motorSpeed;
 		motor[backRightMotor] = negMSpeed;
@@ -146,7 +147,7 @@ void  rightTwoWheelTurn(int degreesMoved, int motorSpeed){
 
 }
 
-task main()
+/*task main()
 {
-	moveBackward(24, 80);
-}
+	leftTwoWheelTurn(45, 80);
+}*/
