@@ -19,26 +19,26 @@
 
 task main()
 {
-	moveForward(5, 80);
-	wait10Msec(50);
-	rightTwoWheelTurn(45, 50);
-	wait10Msec(63);
-	moveForward(45, 80);
+	moveForward(7, 80);
 	wait10Msec(50);
 	leftTwoWheelTurn(45, 50);
-	wait10Msec(137);
+	wait10Msec(49.5);
+	moveForward(38.75, 80);
+	wait10Msec(50);
+	rightTwoWheelTurn(45, 50);
+	wait10Msec(145);
 	stopMotors();
 	wait10Msec(100);
-	rightTwoWheelTurn(42, 50);
-	wait10Msec(145);
-	moveForward(14, 80);
+	leftTwoWheelTurn(42, 50);
+	wait10Msec(127);
+	moveForward(16, 80);
 	wait10Msec(50);
-	leftTwoWheelTurn(48, 50);
-	wait10Msec(58);
+	rightTwoWheelTurn(48, 50);
+	wait10Msec(70);
 	moveForward(52, 80);
 	wait10Msec(50);
-	rightTwoWheelTurn(53, 50);
-	wait10Msec(75);
-	moveBackward(67.5, 80);
+	leftTwoWheelTurn(53, 50);
+	wait10Msec(58);
+	moveBackward(69, 80);
 	wait10Msec(50);
 }
