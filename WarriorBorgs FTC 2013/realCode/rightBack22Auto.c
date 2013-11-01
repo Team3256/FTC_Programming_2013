@@ -19,7 +19,18 @@
 
 task main()
 {
-
-
-
+	moveForward(8, 80);
+	wait10Msec(50);
+	rightTwoWheelTurn(30, 50);
+	wait10Msec(40);
+	stopMotors();
+	wait10Msec(100);
+	rightTwoWheelTurn(15, 50);
+	wait10Msec(65);
+	moveForward(58, 80);
+	wait10Msec(50);
+	rightTwoWheelTurn(90, 50);
+	wait10Msec(91);
+	moveBackward(53, 80);
+	wait10Msec(50);
 }
