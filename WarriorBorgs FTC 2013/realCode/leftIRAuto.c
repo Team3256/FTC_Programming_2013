@@ -17,17 +17,57 @@
 #include "movingAndTurning.c"
 #include "irContinuousTest.c"
 
+void irPositionTest(int inches)
+{
+	wait10Msec(100);
+	inches=inches * 1.1612;
+	if(inches<=12)
+	{
+		moveForward(69, 80);
+	}
+		else if(inches>=12 && inches<=22)
+	{
+
+		moveForward(59, 80);
+	}
+		else if(inches>=22 && inches<=41)
+	{
+
+		moveForward(40, 80);
+	}else if(inches>=41 && inches<=50)
+	{
+			moveForward(29, 80);
+	}
+
+
+}
+
 task main()
 {
 
-	//Autonomus code for the left side of the pendulum.
-
-	moveForward(6, 80);
-	rightTwoWheelTurn(45, 80);
+	moveForward(5, 80);
+	wait10Msec(50);
+	rightTwoWheelTurn(45, 50);
+	wait10Msec(53);
+	//moveBackward(1, 80);
+	//wait10Msec(50);
 	StartTask(irTesting);
-	//do the arm movement stuff
-	StopTask(irTesting);
-	rightTwoWheelTurn(-45, 80);
-	moveForward(8, 80);//bound to change
 
+	wait10Msec(110);
+	//StopTask(irTesting);
+	irPositionTest(inchesMoved);
+	/*/wait10Msec(50);
+	leftTwoWheelTurn(48, 50);
+	wait10Msec(58);
+	moveForward(52, 80);
+	wait10Msec(50);
+	rightTwoWheelTurn(53, 50);
+	wait10Msec(75);
+	moveBackward(67.5, 80);
+	wait10Msec(50);*/
+
+	//moveForward(40, 80);
+
+
+	//writeDebugStreamLine("inches moved: %d", inchesMoved);
 }

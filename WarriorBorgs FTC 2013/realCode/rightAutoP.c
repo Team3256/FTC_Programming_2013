@@ -17,31 +17,27 @@
 #include "movingAndTurning.c"
 #include "irContinuousTest.c"
 
-//void irPositionTest()
-//{
-//	if(inchesMoved<=12)
-//	{
-//		moveForward(69, 80);
-//	}
-//		else if(inchesMoved>=12 && inchesMoved<=22)
-//	{
+void irPositionTest (){
+	float inchesMoved= (nMotorEncoder[backLeftMotor]/ticksPerInches)+4;
+	if(inchesMoved<=12){
+		moveForward(69, 80);
+	}else if(inchesMoved>=12 && inchesMoved<=22){
 
-//		moveForward(59, 80);
-//	}
-//		else if(inchesMoved>=22 && inchesMoved<=41)
-//	{
+		moveForward(59, 80);
+	}else if(inchesMoved>=22 && inchesMoved<=41){
 
-//		moveForward(40, 80);
-//	}else if(inchesMoved>=41 && inchesMoved<=50)
-//	{
-//			moveForward(29, 80);
-//	}
+		moveForward(40, 80);
+	}else if(inchesMoved>=41 && inchesMoved<=50){
+
+		moveForward(29, 80);
+	}
 
 
-//}
+}
 
 task main()
 {
+<<<<<<< HEAD:WarriorBorgs FTC 2013/realCode/rightAutoP.c
 	//moveForward(7, 80);
 	//wait10Msec(50);
 	//leftTwoWheelTurn(45, 50);
@@ -52,7 +48,7 @@ task main()
 	//wait10Msec(145);
 	//stopMotors();
 	//wait10Msec(100);
-	//leftTwo5WheelTurn(42, 50);
+	//leftTwoWheelTurn(42, 50);
 	//wait10Msec(127);
 	//moveForward(16, 80);
 	//wait10Msec(50);
@@ -65,8 +61,23 @@ task main()
 	//moveBackward(69, 80);
 	//wait10Msec(50);
 
-	moveForward(40, 80);
-	float inchesMoved= nMotorEncoder[backLeftMotor]/ticksPerInches;
-	inchesMoved=inchesMoved * 1.1612;
+	moveBackward(24, 80);
+
 	writeDebugStreamLine("inches moved: %d", inchesMoved);
+=======
+	moveForward(8, 80);
+	wait10Msec(50);
+	rightTwoWheelTurn(30, 50);
+	wait10Msec(40);
+	stopMotors();
+	wait10Msec(100);
+	rightTwoWheelTurn(15, 50);
+	wait10Msec(65);
+	moveForward(58, 80);
+	wait10Msec(50);
+	rightTwoWheelTurn(90, 50);
+	wait10Msec(91);
+	moveBackward(53, 80);
+	wait10Msec(50);
+>>>>>>> 15afc0266fe0664b63daeaa75c7626b77d6737e3:WarriorBorgs FTC 2013/realCode/rightBack22Auto.c
 }
