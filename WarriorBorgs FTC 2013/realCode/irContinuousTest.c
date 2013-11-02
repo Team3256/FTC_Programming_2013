@@ -1,4 +1,5 @@
 #pragma config(Hubs,  S1, HTMotor,  HTMotor,  HTMotor,  HTMotor)
+#pragma config(Sensor, S1,     ,               sensorI2CMuxController)
 #pragma config(Sensor, S2,     irSensor,       sensorHiTechnicIRSeeker1200)
 #pragma config(Sensor, S3,     ultrasonicSensor, sensorSONAR)
 #pragma config(Sensor, S4,     lightSensor,    sensorLightInactive)
