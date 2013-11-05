@@ -23,8 +23,8 @@
 task main()
 {
 	waitForStart();
-	nMotorEncoder[tiltingMotor] = 0;
-	int targetTicks = 0;
+	//nMotorEncoder[tiltingMotor] = 0;
+	//int targetTicks = 0;
 	while(1==1)
 	{
 		writeDebugStreamLine("%d", abs(nMotorEncoder[tiltingMotor]));
@@ -37,11 +37,15 @@ task main()
 		motor[conveyorMotor] = ((100.0)*(joystick.joy2_y2/127.0)*(joystick.joy2_y2/127.0)*(joystick.joy2_y2/127.0));
 
 
-		tilting(targetTicks);
+		//tilting(targetTicks);
 
 		if(joy2Btn(1))
 		{
-			targetTicks = 300;
+			motor[tiltingMotor] = 60;
+			wait10Msec(3);
+			motor[tiltingMotor] = 0;
+			wait10Msec(3);
+			//targetTicks = 300;
 			/*if(abs(nMotorEncoder[tiltingMotor]) < targetTicks)
 			{
 				motor[tiltingMotor] = 100;
@@ -53,71 +57,105 @@ task main()
 		}
 		if(joy2Btn(2))
 		{
-			if(abs(nMotorEncoder[tiltingMotor]) < 75)
+			motor[tiltingMotor] = -60;
+			wait10Msec(3);
+			motor[tiltingMotor] = 0;
+			wait10Msec(3);
+			/*if(abs(nMotorEncoder[tiltingMotor]) < 75)
 			{
 				motor[tiltingMotor] = -100;
 			}
 			else
 			{
 				motor[tiltingMotor] = 0;
-			}
+			}*/
 		}
 		if(joy2Btn(4))
 		{
-			motor[tiltingMotor] = 0;
-			//StartTask(rollerRun);
+			StartTask(rollerRun);
+			wait10Msec(200);
 		}
 		if(joy2Btn(7))
 		{
 			motor[liftingMotor] = -100;
+			wait10Msec(800);
+			motor[liftingMotor] = 0;
+			wait10Msec(3);
 		}
 		if(joy2Btn(8))
 		{
 			motor[flagMotor] = 100;
+			wait10Msec(600);
+			motor[flagMotor] = 0;
+			wait10Msec(3);
 		}
 		if(joystick.joy2_TopHat == 0)
 	  {
-	  	if(abs(nMotorEncoder[tiltingMotor]) < 75)
+	  	motor[tiltingMotor] = 75;
+			wait10Msec(61);
+			motor[tiltingMotor] = 25;
+			wait10Msec(5);
+			motor[tiltingMotor] = 0;
+			wait10Msec(10);
+	  	/*if(abs(nMotorEncoder[tiltingMotor]) < 75)
 			{
 				motor[tiltingMotor] = 100;
 			}
 			else
 			{
 				motor[tiltingMotor] = 0;
-			}
+			}*/
 	  }
 	  if(joystick.joy2_TopHat == 2)
 	  {
-	  	if(abs(nMotorEncoder[tiltingMotor]) < 75)
+	  	motor[tiltingMotor] = 75;
+			wait10Msec(70);
+			motor[tiltingMotor] = 25;
+			wait10Msec(5);
+			motor[tiltingMotor] = 0;
+			wait10Msec(10);
+	  	/*if(abs(nMotorEncoder[tiltingMotor]) < 75)
 			{
 				motor[tiltingMotor] = 100;
 			}
 			else
 			{
 				motor[tiltingMotor] = 0;
-			}
+			}*/
 	  }
 	  if(joystick.joy2_TopHat == 4)
 	  {
-	  	if(abs(nMotorEncoder[tiltingMotor]) < 75)
+	  	motor[tiltingMotor] = 75;
+			wait10Msec(72);
+			motor[tiltingMotor] = 25;
+			wait10Msec(7);
+			motor[tiltingMotor] = 0;
+			wait10Msec(4);
+	  	/*if(abs(nMotorEncoder[tiltingMotor]) < 75)
 			{
 				motor[tiltingMotor] = -100;
 			}
 			else
 			{
 				motor[tiltingMotor] = 0;
-			}
+			}*/
 	  }
 	  if(joystick.joy2_TopHat == 6)
 	  {
-	  	if(abs(nMotorEncoder[tiltingMotor]) < 75)
+	  	motor[tiltingMotor] = -50;
+			wait10Msec(57);
+			motor[tiltingMotor] = -25;
+			wait10Msec(10);
+			motor[tiltingMotor] = 0;
+			wait10Msec(4);
+	  	/*if(abs(nMotorEncoder[tiltingMotor]) < 75)
 			{
 				motor[tiltingMotor] = 100;
 			}
 			else
 			{
 				motor[tiltingMotor] = 0;
-			}
+			}*/
 	  }
 	}
 }
