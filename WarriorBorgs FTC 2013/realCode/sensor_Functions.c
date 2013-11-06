@@ -37,6 +37,24 @@ task irRightTesting()
 			wait10Msec(100);
 			rightTwoWheelTurn(90, 80);
 			wait10Msec(102);
+			float inches = inchesMoved * 1.1612;
+			if(inches<=12)
+			{
+				moveForward(69, 80);
+			}
+				else if(inches>=12 && inches<=22)
+			{
+
+				moveForward(59, 80);
+			}
+				else if(inches>=22 && inches<=41)
+			{
+
+				moveForward(40, 80);
+			}else if(inches>=41 && inches<=50)
+			{
+					moveForward(29, 80);
+			}
 			break;
 		}
 		else if(SensorValue(irSensor) >= 1 || SensorValue(irSensor) <= 4)
