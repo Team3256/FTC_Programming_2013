@@ -27,17 +27,17 @@ task irRightTesting()
 		{
 			inchesMoved= nMotorEncoder[backLeftMotor]/ticksPerInches;
 			wait10Msec(40);
-			moveForward(3, 80);
-			wait10Msec(50);
+			//moveBackward(1, 80);
+			//wait10Msec(50);
 			leftTwoWheelTurn(90, 80);
-			wait10Msec(86);
+			wait10Msec(115);
 			motor[frontLeftMotor] = 0;
 			motor[frontRightMotor] = 0;
 			motor[backRightMotor] = 0;
 			motor[backLeftMotor] = 0;
 			wait10Msec(100);
 			rightTwoWheelTurn(90, 80);
-			wait10Msec(102);
+			wait10Msec(120);
 			float inches = inchesMoved * 1.1612;
 			if(inches<=12)
 			{

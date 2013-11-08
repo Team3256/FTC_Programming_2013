@@ -56,7 +56,7 @@ void moveForward(float inchesMoved, int motorSpeed)
 void moveBackward(float inchesMoved, int motorSpeed)
 {
 	float nticks = 0;
-	nticks =  abs(inchesMoved *ticksPerInches);
+	nticks =  abs(inchesMoved * ticksPerInches);
 	float nticks2 = nticks * 22.5 / 26;
 	writeDebugStreamLine("number of ticks that our robot has to move.");
 	writeDebugStreamLine("%d", nticks);

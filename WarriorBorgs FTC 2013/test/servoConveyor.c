@@ -10,9 +10,7 @@
 
 task main()
 {
-	while(true)
-	{
-		servo[servo1] = ServoValue[servo1] - 10;
-		wait10Msec(100);
-	}
+
+	servo[servo1] = ServoValue(servo1) + 10;
+	wait10Msec(2000);
 }
