@@ -1,6 +1,6 @@
 #pragma config(Hubs,  S1, HTServo,  none,     none,     none)
 #pragma config(Sensor, S1,     ,               sensorI2CMuxController)
-#pragma config(Servo,  srvo_S1_C1_1,    servo1,               tServoContinuousRotation)
+#pragma config(Servo,  srvo_S1_C1_1,    myServoCity,          tServoContinuousRotation)
 #pragma config(Servo,  srvo_S1_C1_2,    servo2,               tServoNone)
 #pragma config(Servo,  srvo_S1_C1_3,    servo3,               tServoNone)
 #pragma config(Servo,  srvo_S1_C1_4,    servo4,               tServoNone)
@@ -10,7 +10,15 @@
 
 task main()
 {
-
-	servo[servo1] = ServoValue(servo1) + 10;
-	wait10Msec(2000);
+	while(1==1)
+	{
+		for (int time = 0; time < 100; time++)
+		{
+			servoChangeRate[myServoCity] = 0;
+			servo[myServoCity] = ServoValue[myServoCity] - 1;
+		}
+		servo[myServoCity] = 0;
+		//wait10Msec(300);
+		//wait10Msec(2000000000000);
+	}
 }

@@ -27,11 +27,14 @@ task main()
 	wait10Msec(65);
 	moveBackward(2, 80);
 	wait10Msec(50);
-	StartTask(irRightTesting);
-	wait10Msec(850);
-	//wait10Msec(50);
-	//leftTwoWheelTurn(48, 50);
-	//wait10Msec(58);
+	while(taskEnder == false){
+		StartTask(irRightTesting);
+		wait10Msec(800);
+
+	}
+	wait10Msec(50);
+	leftTwoWheelTurn(48, 50);
+	wait10Msec(58);
 	/*
 	moveForward(52, 80);
 	wait10Msec(50);

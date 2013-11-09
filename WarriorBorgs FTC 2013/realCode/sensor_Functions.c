@@ -17,6 +17,7 @@
 
 #include "driveTrain_Functions.c"
 float inchesMoved;
+bool taskEnder= false;
 
 // task that turns left when an IR seeker finds the IR beacon underneath a box to put the autonomous block
 task irRightTesting()
@@ -27,36 +28,44 @@ task irRightTesting()
 		{
 			inchesMoved= nMotorEncoder[backLeftMotor]/ticksPerInches;
 			wait10Msec(40);
-			//moveBackward(1, 80);
-			//wait10Msec(50);
+			moveForward(5, 80);
+			wait10Msec(105);
 			leftTwoWheelTurn(90, 80);
-			wait10Msec(115);
+			wait10Msec(95);
 			motor[frontLeftMotor] = 0;
 			motor[frontRightMotor] = 0;
 			motor[backRightMotor] = 0;
 			motor[backLeftMotor] = 0;
 			wait10Msec(100);
 			rightTwoWheelTurn(90, 80);
-			wait10Msec(120);
+			wait10Msec(115);
 			float inches = inchesMoved * 1.1612;
 			if(inches<=12)
 			{
 				moveForward(69, 80);
+				taskEnder = true;
+				break;
 			}
 				else if(inches>=12 && inches<=22)
 			{
 
 				moveForward(59, 80);
+				taskEnder = true;
+				break;
 			}
 				else if(inches>=22 && inches<=41)
 			{
 
 				moveForward(40, 80);
+				taskEnder = true;
+				break;
 			}else if(inches>=41 && inches<=50)
 			{
 					moveForward(29, 80);
+					taskEnder = true;
+					break;
 			}
-			break;
+
 		}
 		else if(SensorValue(irSensor) >= 1 || SensorValue(irSensor) <= 4)
 		{
