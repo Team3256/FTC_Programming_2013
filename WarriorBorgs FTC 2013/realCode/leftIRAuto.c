@@ -1,8 +1,6 @@
 #pragma config(Hubs,  S1, HTMotor,  HTMotor,  HTMotor,  HTMotor)
-#pragma config(Sensor, S1,     ,               sensorI2CMuxController)
-#pragma config(Sensor, S2,     touchSensorDos,    sensorLightActive)
 #pragma config(Sensor, S3,     irSensor,       sensorHiTechnicIRSeeker1200)
-#pragma config(Sensor, S4,     touchSensorUno,    sensorTouch)
+#pragma config(Sensor, S4,     sonarSensor,    sensorSONAR)
 #pragma config(Motor,  motorA,          feedingMotorUno, tmotorNXT, PIDControl, encoder)
 #pragma config(Motor,  motorB,          feedingMotorDos, tmotorNXT, PIDControl, encoder)
 #pragma config(Motor,  mtr_S1_C1_1,     frontLeftMotor, tmotorTetrix, openLoop, encoder)
@@ -22,12 +20,12 @@
 
 task main()
 {
-	moveForward(7, 80);
+	moveForward(6.5, 80);
 	wait10Msec(50);
 	stopMotors();
 	wait10Msec(30);
 	rightTwoWheelTurn(45, 50);
-	wait10Msec(65);
+	wait10Msec(67);
 	stopMotors();
 	wait10Msec(30);
 	moveBackward(2, 80);
@@ -36,8 +34,8 @@ task main()
 	wait10Msec(30);
 	StartTask(irRightTesting);
 	wait10Msec(800);
-	StopTask(irRightTesting);
-	while (SensorValue[touchSensorDos] == 0)
+	//StopTask(irRightTesting);
+	while (SensorValue[sonarSensor] < 50)
 	{
 		motor[frontLeftMotor] = 100;
 		motor[frontRightMotor] = 100;
@@ -46,21 +44,15 @@ task main()
 	}
 	stopMotors();
 	wait10Msec(30);
-	while (SensorValue[touchSensorUno] == 0)
-	{
-		motor[frontLeftMotor] = 100;
-		motor[frontRightMotor] = 0;
-		motor[backRightMotor] = 0;
-		motor[backLeftMotor] = 100;
-	}
-	stopMotors();
-	wait10Msec(30);
-	/*moveForward(52, 80);
+	moveForward(8, 80);
+	wait10Msec(50);
+	leftTwoWheelTurn(53, 50);
+	wait10Msec(51);
+	moveForward(59, 80);
 	wait10Msec(50);
 	rightTwoWheelTurn(53, 50);
 	wait10Msec(75);
-	moveBackward(67.5, 80);
-	wait10Msec(50);
-	moveForward(40, 80);
+	moveBackward(65, 80);
+	wait10Msec(70);
 	//writeDebugStreamLine("inches moved: %d", inchesMoved);*/
 }
