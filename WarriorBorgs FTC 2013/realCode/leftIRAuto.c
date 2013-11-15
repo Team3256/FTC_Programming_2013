@@ -25,7 +25,7 @@ task main()
 	stopMotors();
 	wait10Msec(30);
 	rightTwoWheelTurn(45, 50);
-	wait10Msec(67);
+	wait10Msec(68);
 	stopMotors();
 	wait10Msec(30);
 	moveBackward(2, 80);
@@ -34,8 +34,7 @@ task main()
 	wait10Msec(30);
 	StartTask(irRightTesting);
 	wait10Msec(800);
-	//StopTask(irRightTesting);
-	while (SensorValue[sonarSensor] < 50)
+	while (SensorValue[sonarSensor] < 60)
 	{
 		motor[frontLeftMotor] = 100;
 		motor[frontRightMotor] = 100;
@@ -46,13 +45,16 @@ task main()
 	wait10Msec(30);
 	moveForward(8, 80);
 	wait10Msec(50);
-	leftTwoWheelTurn(53, 50);
-	wait10Msec(51);
-	moveForward(59, 80);
+	leftTwoWheelTurn(48, 50);
+	wait10Msec(53.5);
+	moveForward(25, 80);
+	wait10Msec(50);
+	leftTwoWheelTurn(48, 50);
+	wait10Msec(58);
+	moveForward(34, 80);
 	wait10Msec(50);
 	rightTwoWheelTurn(53, 50);
-	wait10Msec(75);
-	moveBackward(65, 80);
-	wait10Msec(70);
-	//writeDebugStreamLine("inches moved: %d", inchesMoved);*/
+	wait10Msec(152);
+	moveBackward(44.5, 80);
+	wait10Msec(50);
 }

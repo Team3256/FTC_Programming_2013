@@ -25,12 +25,16 @@ task main()
 	wait10Msec(40);
 	stopMotors();
 	wait10Msec(100);
-	rightTwoWheelTurn(15, 50);
-	wait10Msec(65);
-	moveForward(58, 80);
+	rightTwoWheelTurn(35, 50);
+	wait10Msec(83);
+	moveForward(25, 80);
 	wait10Msec(50);
-	rightTwoWheelTurn(90, 50);
-	wait10Msec(91);
-	moveBackward(53, 80);
+	leftTwoWheelTurn(48, 50);
+	wait10Msec(58);
+	moveForward(29, 80);
 	wait10Msec(50);
+	rightTwoWheelTurn(53, 50);
+	wait10Msec(150);
+	moveBackward(43, 80);
+	wait10Msec(60);
 }

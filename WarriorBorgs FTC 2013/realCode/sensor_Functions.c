@@ -27,50 +27,17 @@ task irRightTesting()
 		{
 			stopMotors();
 			wait10Msec(40);
-			moveForward(7, 80);
+			moveForward(4, 80);
 			wait10Msec(100);
 			leftTwoWheelTurn(90, 80);
-			wait10Msec(90);
+			wait10Msec(95);
 			stopMotors();
 			wait10Msec(30);
 			rightTwoWheelTurn(90, 80);
-			wait10Msec(106.5);
+			wait10Msec(110);
 			stopMotors();
 			wait10Msec(100);
 			break;
-			/*float tester = inchesMoved * 1.1612;
-			if(tester <= 6)
-			{
-				writeDebugStreamLine("1");
-				moveForward(50, 80);
-				wait10Msec(30);
-				//taskEnder = true;
-				break;
-			}
-				else if(tester >= 14 && tester <=41)
-			{
-				writeDebugStreamLine("2");
-				moveForward(45, 80);
-				wait10Msec(30);
-				//taskEnder = true;
-				break;
-			}
-				else if(tester >= 42 && tester <= 51)
-			{
-				writeDebugStreamLine("3");
-				moveForward(40, 80);
-				wait10Msec(30);
-				//taskEnder = true;
-				break;
-			}else if(tester >= 51)
-			{
-
-					moveForward(29, 80);
-					wait10Msec(30);
-					//taskEnder = true;
-					break;
-			}*/
-
 		}
 		else
 		{
@@ -89,57 +56,27 @@ task irLeftTesting()
 	{
 		if(SensorValue(irSensor) == 5)
 		{
-			inchesMoved= nMotorEncoder[backLeftMotor]/ticksPerInches;
+			stopMotors();
 			wait10Msec(40);
-			moveForward(3, 80);
-			wait10Msec(50);
-			rightTwoWheelTurn(90, 80);
-			wait10Msec(86);
-			motor[frontLeftMotor] = 0;
-			motor[frontRightMotor] = 0;
-			motor[backRightMotor] = 0;
-			motor[backLeftMotor] = 0;
+			moveForward(4, 80);
 			wait10Msec(100);
+			rightTwoWheelTurn(90, 80);
+			wait10Msec(109);
+			stopMotors();
+			wait10Msec(30);
 			leftTwoWheelTurn(90, 80);
-			wait10Msec(102);
+			wait10Msec(95.5);
+			stopMotors();
+			wait10Msec(100);
 			break;
 		}
-		else if(SensorValue(irSensor) >= 1 || SensorValue(irSensor) <= 4)
+		else
 		{
 			motor[frontLeftMotor] = 100;
 			motor[frontRightMotor] = 100;
 			motor[backRightMotor] = 100;
 			motor[backLeftMotor] = 100;
 		}
-		else if (SensorValue(irSensor) >= 6 || SensorValue(irSensor) <= 9)
-		{
-			motor[frontLeftMotor] = 100;
-			motor[frontRightMotor] = 100;
-			motor[backRightMotor] = 100;
-			motor[backLeftMotor] = 100;
-		}
-	}
-}
-
-void irPositionTest(int inches)
-{
-	wait10Msec(100);
-	inches *= 1.1612;
-	if(inches<=12)
-	{
-		moveForward(69, 80);
-	}
-	else if(inches>=12 && inches<=22)
-	{
-		moveForward(59, 80);
-	}
-	else if(inches>=22 && inches<=41)
-	{
-		moveForward(40, 80);
-	}
-	else if(inches>=41 && inches<=50)
-	{
-		moveForward(29, 80);
 	}
 }
 

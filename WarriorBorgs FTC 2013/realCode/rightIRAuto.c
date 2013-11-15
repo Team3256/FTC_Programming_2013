@@ -1,8 +1,6 @@
 #pragma config(Hubs,  S1, HTMotor,  HTMotor,  HTMotor,  HTMotor)
-#pragma config(Sensor, S1,     ,               sensorI2CMuxController)
-#pragma config(Sensor, S2,     lightSensor,    sensorLightActive)
 #pragma config(Sensor, S3,     irSensor,       sensorHiTechnicIRSeeker1200)
-#pragma config(Sensor, S4,     touchSensor,    sensorTouch)
+#pragma config(Sensor, S4,     sonarSensor,    sensorSONAR)
 #pragma config(Motor,  motorA,          feedingMotorUno, tmotorNXT, PIDControl, encoder)
 #pragma config(Motor,  motorB,          feedingMotorDos, tmotorNXT, PIDControl, encoder)
 #pragma config(Motor,  mtr_S1_C1_1,     frontLeftMotor, tmotorTetrix, openLoop, encoder)
@@ -18,12 +16,45 @@
 #include "driveTrain_Functions.c"
 #include "sensor_Functions.c"
 
+
+
 task main()
 {
-	/*
-	moveForward(40, 80);
-	float inchesMoved= nMotorEncoder[backLeftMotor]/ticksPerInches;
-	inchesMoved=inchesMoved * 1.1612;
-	writeDebugStreamLine("inches moved: %d", inchesMoved);
-	*/
+	moveForward(6.5, 80);
+	wait10Msec(50);
+	stopMotors();
+	wait10Msec(30);
+	leftTwoWheelTurn(45, 50);
+	wait10Msec(50);
+	stopMotors();
+	wait10Msec(30);
+	moveBackward(2, 80);
+	wait10Msec(50);
+	stopMotors();
+	wait10Msec(30);
+	StartTask(irLeftTesting);
+	wait10Msec(800);
+	while (SensorValue[sonarSensor] < 75)
+	{
+		motor[frontLeftMotor] = 100;
+		motor[frontRightMotor] = 100;
+		motor[backRightMotor] = 100;
+		motor[backLeftMotor] = 100;
+	}
+	stopMotors();
+	wait10Msec(30);
+	moveForward(8, 80);
+	wait10Msec(50);
+	rightTwoWheelTurn(48, 50);
+	wait10Msec(60);
+	moveForward(25, 80);
+	wait10Msec(50);
+	rightTwoWheelTurn(48, 50);
+	wait10Msec(58);
+	moveForward(28.5, 80);
+	wait10Msec(50);
+	leftTwoWheelTurn(53, 50);
+	wait10Msec(120);
+	moveBackward(43.5, 80);
+	wait10Msec(50);
 }

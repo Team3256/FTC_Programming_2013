@@ -34,11 +34,15 @@ task main()
 	moveForward(16, 80);
 	wait10Msec(50);
 	rightTwoWheelTurn(48, 50);
-	wait10Msec(70);
-	moveForward(52, 80);
+	wait10Msec(53.5);
+	moveForward(25, 80);
+	wait10Msec(50);
+	rightTwoWheelTurn(48, 50);
+	wait10Msec(58);
+	moveForward(29, 80);
 	wait10Msec(50);
 	leftTwoWheelTurn(53, 50);
-	wait10Msec(58);
-	moveBackward(69, 80);
+	wait10Msec(115);
+	moveBackward(45, 80);
 	wait10Msec(50);
 }
