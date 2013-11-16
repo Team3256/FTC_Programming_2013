@@ -21,6 +21,7 @@ task main()
 {
 	moveForward(5, 80);
 	wait10Msec(50);
+	//positioned in first bucket from the left side of the pendulum
 	stopMotors();
 	wait10Msec(50);
 	leftTwoWheelTurn(45, 50);
@@ -31,4 +32,5 @@ task main()
 	wait10Msec(97);
 	moveBackward(40, 80);
 	wait10Msec(37);
+	//robot parked in the middle of the ramp
 }

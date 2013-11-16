@@ -30,10 +30,13 @@ task main()
 	wait10Msec(30);
 	moveBackward(2, 80);
 	wait10Msec(50);
+	//robot moves backward, so it will be able to sense the ir beacon underneath first bucket
 	stopMotors();
 	wait10Msec(30);
+	//keep going forward until ir sensor senses ir beacon
 	StartTask(irLeftTesting);
 	wait10Msec(800);
+	//wall follow the wall until the ultrasonic sensor stops sensing the black base underneath the pendulum
 	while (SensorValue[sonarSensor] < 75)
 	{
 		motor[frontLeftMotor] = 100;
@@ -57,4 +60,5 @@ task main()
 	wait10Msec(120);
 	moveBackward(43.5, 80);
 	wait10Msec(50);
+	//robot is parked in the middle of the ramp
 }

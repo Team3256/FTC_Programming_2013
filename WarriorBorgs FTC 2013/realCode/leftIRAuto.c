@@ -16,8 +16,6 @@
 #include "driveTrain_Functions.c"
 #include "sensor_Functions.c"
 
-
-
 task main()
 {
 	moveForward(6.5, 80);
@@ -28,12 +26,15 @@ task main()
 	wait10Msec(68);
 	stopMotors();
 	wait10Msec(30);
+	//robot moves backward, so it will be able to sense the ir beacon underneath first bucket
 	moveBackward(2, 80);
 	wait10Msec(50);
 	stopMotors();
 	wait10Msec(30);
+	//keep going forward until ir sensor senses ir beacon
 	StartTask(irRightTesting);
 	wait10Msec(800);
+	//wall follow the wall until the ultrasonic sensor stops sensing the black base underneath the pendulum
 	while (SensorValue[sonarSensor] < 60)
 	{
 		motor[frontLeftMotor] = 100;
@@ -57,4 +58,5 @@ task main()
 	wait10Msec(152);
 	moveBackward(44.5, 80);
 	wait10Msec(50);
+	//robot is parked in the middle of the ramp
 }

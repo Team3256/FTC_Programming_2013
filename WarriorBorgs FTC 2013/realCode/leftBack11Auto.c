@@ -27,6 +27,7 @@ task main()
 	wait10Msec(50);
 	leftTwoWheelTurn(45, 50);
 	wait10Msec(134);
+	//robot positioned at the third box from the left side of the pendulum
 	stopMotors();
 	wait10Msec(100);
 	rightTwoWheelTurn(42, 50);
@@ -45,4 +46,5 @@ task main()
 	wait10Msec(150);
 	moveBackward(44, 80);
 	wait10Msec(50);
+	//robot is parked in the ramp, in the middle
 }

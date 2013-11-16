@@ -27,6 +27,7 @@ task main()
 	wait10Msec(50);
 	rightTwoWheelTurn(45, 50);
 	wait10Msec(145);
+	//robot stopped in the third bucket from the right side of the pendulum
 	stopMotors();
 	wait10Msec(100);
 	leftTwoWheelTurn(42, 50);
@@ -45,4 +46,5 @@ task main()
 	wait10Msec(115);
 	moveBackward(45, 80);
 	wait10Msec(50);
+	//robot parked in the middle of the ramp
 }
