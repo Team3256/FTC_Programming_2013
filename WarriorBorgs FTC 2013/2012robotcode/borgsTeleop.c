@@ -20,7 +20,6 @@
 #include "driveTrain_Functions.c"
 #include "sensor_Functions.c"
 #include "roller_Functions.c"
-#include "it_Functions.c"
 
 task main()
 {
@@ -28,11 +27,11 @@ task main()
 	while(1==1)
 	{
 		//left two motors controlled by the left joystick in controller one
-		motor[frontLeftMotor] = ((100.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0));
-		motor[backLeftMotor] = ((100.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0));
+		motor[frontLeftMotor] = ((-100.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0));
+		motor[backLeftMotor] = ((-100.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0));
 		//right two motors controlled by the right joystick in controller one
-		motor[frontRightMotor] = ((100.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0));
-		motor[backRightMotor] = ((100.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0));
+		motor[frontRightMotor] = ((-100.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0));
+		motor[backRightMotor] = ((-100.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0));
 		//two feeding motors controlled by the left joystick in controller two
 		motor[feedingMotorUno] = ((100.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0));
 		motor[feedingMotorDos] = ((100.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0));
