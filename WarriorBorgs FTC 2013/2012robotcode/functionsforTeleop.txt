@@ -4,7 +4,7 @@
 position 1 (higher) for tiliting - TOPHAT 0
 position 2 (in between) for tilting - TOPHAT 2
 position 3 (lower) for tilting - TOPHAT 6
-beginning position for tilting - TOPHAT 4
+beginning position for tilting (reset) - TOPHAT 4
 -tilting up certain amount (override) - BUTTON 1
 -tilting down certain amount (override)  - BUTTON 2
 -hanging - BUTTON 7
