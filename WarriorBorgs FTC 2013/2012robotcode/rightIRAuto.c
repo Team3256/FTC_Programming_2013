@@ -21,6 +21,7 @@
 
 task main()
 {
+	waitForStart();
 	moveForward(6.5, 80);
 	wait10Msec(50);
 	stopMotors();

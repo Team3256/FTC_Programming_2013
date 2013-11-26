@@ -18,6 +18,7 @@
 
 task main()
 {
+	waitForStart();
 	moveForward(7, 80);
 	wait10Msec(50);
 	leftTwoWheelTurn(45, 50);

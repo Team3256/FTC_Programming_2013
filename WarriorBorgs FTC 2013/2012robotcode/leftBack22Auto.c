@@ -18,6 +18,7 @@
 
 task main()
 {
+	waitForStart();
 	moveForward(5, 80);
 	wait10Msec(50);
 	//positioned in first bucket from the left side of the pendulum
