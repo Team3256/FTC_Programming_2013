@@ -16,7 +16,7 @@
 
 //different variables assigned as floats
 float pie = 3.14159;
-float track = 14.5;
+float track = 17;
 float halfTrack = track / 2;
 float wheelDiam = 3.75;
 float wheelRadius = 1.875;

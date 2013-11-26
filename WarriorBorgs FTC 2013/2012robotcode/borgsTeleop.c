@@ -32,8 +32,8 @@ task main()
 		motor[frontRightMotor] = ((-100.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0));
 		motor[backRightMotor] = ((-100.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0));
 		//two feeding motors controlled by the left joystick in controller two
-		motor[feedingMotorUno] = ((100.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0));
-		motor[feedingMotorDos] = ((100.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0));
+		motor[feedingMotorUno] = ((50.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0));
+		motor[feedingMotorDos] = ((50.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0));
 		//conveyor motor controlled by the right joystick in controller two (should be pushed at the same time as left joystick in controller two is pushed)
 		motor[conveyorMotor] = ((100.0)*(joystick.joy2_y2/127.0)*(joystick.joy2_y2/127.0)*(joystick.joy2_y2/127.0));
 		//tilting motor moves a little bit down when button one in controller two is pressed
