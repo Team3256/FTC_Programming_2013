@@ -40,7 +40,7 @@ task main()
 		if(joy2Btn(1))
 		{
 			motor[tiltingMotor] = 60;
-			wait10Msec(3);
+			wait10Msec(5);
 			motor[tiltingMotor] = 0;
 			wait10Msec(3);
 		}
@@ -48,7 +48,7 @@ task main()
 		if(joy2Btn(2))
 		{
 			motor[tiltingMotor] = -60;
-			wait10Msec(3);
+			wait10Msec(5);
 			motor[tiltingMotor] = 0;
 			wait10Msec(3);
 		}
@@ -88,7 +88,7 @@ task main()
 	  if(joystick.joy2_TopHat == 2)
 	  {
 	  	motor[tiltingMotor] = 75;
-			wait10Msec(90);
+			wait10Msec(68);
 			motor[tiltingMotor] = 25;
 			wait10Msec(5);
 			motor[tiltingMotor] = 0;
@@ -98,7 +98,7 @@ task main()
 	  if(joystick.joy2_TopHat == 4)
 	  {
 	  	motor[tiltingMotor] = 75;
-			wait10Msec(90);
+			wait10Msec(55);
 			motor[tiltingMotor] = 25;
 			wait10Msec(7);
 			motor[tiltingMotor] = 0;
@@ -110,7 +110,7 @@ task main()
 	  	motor[tiltingMotor] = -50;
 			wait10Msec(57);
 			motor[tiltingMotor] = -25;
-			wait10Msec(10);
+			wait10Msec(20);
 			motor[tiltingMotor] = 0;
 			wait10Msec(4);
 	  }
