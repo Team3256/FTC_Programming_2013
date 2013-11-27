@@ -66,6 +66,14 @@ task main()
 			motor[liftingMotor] = 0;
 			wait10Msec(3);
 		}
+		//this button brings the carriage down, to completely get the robot to hang
+		else if(joy2Btn(5))
+		{
+			motor[liftingMotor] = 100;
+			wait10Msec(800);
+			motor[liftingMotor] = 0;
+			wait10Msec(3);
+		}
 		//the robot runs its flag motor to raise the flag, when button eight in controller two is pressed
 		if(joy2Btn(8))
 		{
