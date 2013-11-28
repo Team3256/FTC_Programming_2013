@@ -1,13 +1,11 @@
 #pragma config(Hubs,  S1, HTMotor,  HTMotor,  HTMotor,  HTMotor)
-#pragma config(Sensor, S1,     ,               sensorI2CMuxController)
-#pragma config(Sensor, S2,     lightSensor,    sensorLightActive)
 #pragma config(Sensor, S3,     irSensor,       sensorHiTechnicIRSeeker1200)
 #pragma config(Sensor, S4,     sonarSensor,    sensorSONAR)
 #pragma config(Motor,  motorA,          feedingMotorUno, tmotorNXT, PIDControl, encoder)
 #pragma config(Motor,  motorB,          feedingMotorDos, tmotorNXT, PIDControl, encoder)
-#pragma config(Motor,  mtr_S1_C1_1,     frontLeftMotor, tmotorTetrix, openLoop, encoder)
+#pragma config(Motor,  mtr_S1_C1_1,     frontLeftMotor, tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S1_C1_2,     backLeftMotor, tmotorTetrix, openLoop, encoder)
-#pragma config(Motor,  mtr_S1_C2_1,     frontRightMotor, tmotorTetrix, openLoop, encoder)
+#pragma config(Motor,  mtr_S1_C2_1,     frontRightMotor, tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S1_C2_2,     backRightMotor, tmotorTetrix, openLoop, encoder)
 #pragma config(Motor,  mtr_S1_C3_1,     flagMotor,     tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S1_C3_2,     liftingMotor,  tmotorTetrix, openLoop)
@@ -19,10 +17,10 @@
 float pie = 3.14159;
 float track = 17;
 float halfTrack = track / 2;
-float wheelDiam = 3.75;
-float wheelRadius = 1.875;
+float wheelDiam = 3.88;
+float wheelRadius = wheelDiam / 2;
 float wheelCircumference = wheelDiam * PI;
-float ticksPerInches =  2880 / (wheelCircumference);
+float ticksPerInches =  2160 / (wheelCircumference);
 float halfRobotCircumference = track*pie;
 float robotCircumference = track*2*pie;
 
@@ -31,14 +29,14 @@ void moveForward(float inchesMoved, int motorSpeed)
 {
 	float nticks = 0;
 	nticks = abs(inchesMoved * ticksPerInches);
-	float nticks2 = nticks * 22.5 / 26;
+	float nticks2 = nticks * 24 / 29;
 	nMotorEncoder[backLeftMotor] = 0;
 	writeDebugStreamLine("number of ticks that our robot has to move.");
 	writeDebugStreamLine("%d", nticks2);
 	while (abs(nMotorEncoder[backLeftMotor]) < nticks2)
 	{
 			motor[frontLeftMotor] = motorSpeed;
-			motor[frontRightMotor] = motorSpeed - 0.5;
+			motor[frontRightMotor] = -motorSpeed - 0.5;
 			motor[backRightMotor] = motorSpeed;
 			motor[backLeftMotor] = motorSpeed;
 			motorSpeed -= 0.005;
@@ -53,14 +51,14 @@ void moveBackward(float inchesMoved, int motorSpeed)
 {
 	float nticks = 0;
 	nticks =  abs(inchesMoved * ticksPerInches);
-	float nticks2 = nticks * 22.5 / 26;
+	float nticks2 = nticks * 24 / 29;
 	writeDebugStreamLine("number of ticks that our robot has to move.");
 	writeDebugStreamLine("%d", nticks);
 	nMotorEncoder[backLeftMotor] = 0;
 	while(abs(nMotorEncoder[backLeftMotor]) < nticks2)
 	{
 		motor[frontRightMotor] = -motorSpeed;
-		motor[frontLeftMotor] = -motorSpeed;
+		motor[frontLeftMotor] = motorSpeed;
 		motor[backRightMotor] = -motorSpeed;
 		motor[backLeftMotor] = -motorSpeed;
 	}
@@ -81,7 +79,7 @@ void leftTwoWheelTurn(int degreesMoved, int motorSpeed)
 	{
 		motor[frontRightMotor] = motorSpeed;
 		motor[frontLeftMotor] = negMSpeed;
-		motor[backRightMotor] = motorSpeed;
+		motor[backRightMotor] = -motorSpeed;
 		motor[backLeftMotor] = negMSpeed;
 		motorSpeed -= 0.005;
 		negMSpeed += 0.005;
@@ -100,7 +98,7 @@ void  rightTwoWheelTurn(int degreesMoved, int motorSpeed)
 	{
 		motor[frontRightMotor] = negMSpeed;
 		motor[frontLeftMotor] = motorSpeed;
-		motor[backRightMotor] = negMSpeed;
+		motor[backRightMotor] = -negMSpeed;
 		motor[backLeftMotor] = motorSpeed;
 		motorSpeed -= 0.005;
 		negMSpeed += 0.005;
@@ -116,8 +114,8 @@ void stopMotors()
 }
 
 
-/*task main()
+task main()
 {
-	moveForward(20, 80);
+	moveForward(24, 80);
 	wait10Msec(50);
-}*/
+}
