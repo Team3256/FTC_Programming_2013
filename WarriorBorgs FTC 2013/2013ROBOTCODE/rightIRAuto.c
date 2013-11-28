@@ -1,6 +1,4 @@
 #pragma config(Hubs,  S1, HTMotor,  HTMotor,  HTMotor,  HTMotor)
-#pragma config(Sensor, S1,     ,               sensorI2CMuxController)
-#pragma config(Sensor, S2,     lightSensor,    sensorLightActive)
 #pragma config(Sensor, S3,     irSensor,       sensorHiTechnicIRSeeker1200)
 #pragma config(Sensor, S4,     sonarSensor,    sensorSONAR)
 #pragma config(Motor,  motorA,          feedingMotorUno, tmotorNXT, PIDControl, encoder)
@@ -30,6 +28,22 @@ task main()
 	wait10Msec(50);
 	stopMotors();
 	wait10Msec(30);
+	motor[tiltingMotor] = 75;
+			wait10Msec(85);
+			motor[tiltingMotor] = 25;
+			wait10Msec(5);
+			motor[tiltingMotor] = 0;
+			wait10Msec(10);
+				motor[conveyorMotor] = 100;
+				wait10Msec(200);
+				motor[conveyorMotor] = 0;
+				wait10Msec(50);
+			motor[tiltingMotor] = -35;
+			wait10Msec(60);
+			motor[tiltingMotor] = -25;
+			wait10Msec(5);
+			motor[tiltingMotor] = 0;
+			wait10Msec(10);
 	moveBackward(2, 80);
 	wait10Msec(50);
 	//robot moves backward, so it will be able to sense the ir beacon underneath first bucket
