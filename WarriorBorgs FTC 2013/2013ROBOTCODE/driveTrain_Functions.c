@@ -29,7 +29,7 @@ void moveForward(float inchesMoved, int motorSpeed)
 {
 	float nticks = 0;
 	nticks = abs(inchesMoved * ticksPerInches);
-	float nticks2 = nticks * 24 / 29;
+	float nticks2 = nticks * 21.95 / 29;
 	nMotorEncoder[backLeftMotor] = 0;
 	writeDebugStreamLine("number of ticks that our robot has to move.");
 	writeDebugStreamLine("%d", nticks2);
@@ -51,14 +51,14 @@ void moveBackward(float inchesMoved, int motorSpeed)
 {
 	float nticks = 0;
 	nticks =  abs(inchesMoved * ticksPerInches);
-	float nticks2 = nticks * 24 / 29;
+	float nticks2 = nticks * 22.5 / 29;
 	writeDebugStreamLine("number of ticks that our robot has to move.");
 	writeDebugStreamLine("%d", nticks);
 	nMotorEncoder[backLeftMotor] = 0;
 	while(abs(nMotorEncoder[backLeftMotor]) < nticks2)
 	{
-		motor[frontRightMotor] = -motorSpeed;
-		motor[frontLeftMotor] = motorSpeed;
+		motor[frontRightMotor] = motorSpeed;
+		motor[frontLeftMotor] = -motorSpeed;
 		motor[backRightMotor] = -motorSpeed;
 		motor[backLeftMotor] = -motorSpeed;
 	}
@@ -75,12 +75,13 @@ void leftTwoWheelTurn(int degreesMoved, int motorSpeed)
 	nticks = abs((degreesMoved*halfTrack)/(wheelRadius));
 	nticks = nticks * 0.75 *2 / 3;
 	nMotorEncoder[backLeftMotor]=0;
-	while(abs(nMotorEncoder[backLeftMotor]) < nticks*4)
+	while(abs(nMotorEncoder[backLeftMotor]) < nticks)
 	{
-		motor[frontRightMotor] = motorSpeed;
-		motor[frontLeftMotor] = negMSpeed;
-		motor[backRightMotor] = -motorSpeed;
-		motor[backLeftMotor] = negMSpeed;
+		motor[frontLeftMotor] = -motorSpeed;
+		motor[frontRightMotor] = -motorSpeed - 0.5;
+		motor[backRightMotor] = motorSpeed;
+		motor[backLeftMotor] = -motorSpeed;
+			motorSpeed -= 0.005;
 		motorSpeed -= 0.005;
 		negMSpeed += 0.005;
 	}
@@ -92,13 +93,13 @@ void  rightTwoWheelTurn(int degreesMoved, int motorSpeed)
 	float nticks = 0;
 	float negMSpeed = -motorSpeed;
 	nticks = abs((degreesMoved*halfTrack)/(wheelRadius));
-	nticks= nticks* 1.3 * 2/ 3;
+	nticks= nticks* 1.3 * 5/ 9;
 	nMotorEncoder[backLeftMotor]=0;
 	while(nMotorEncoder[backLeftMotor] < nticks)
 	{
-		motor[frontRightMotor] = negMSpeed;
 		motor[frontLeftMotor] = motorSpeed;
-		motor[backRightMotor] = -negMSpeed;
+		motor[frontRightMotor] = motorSpeed - 0.5;
+		motor[backRightMotor] = -motorSpeed;
 		motor[backLeftMotor] = motorSpeed;
 		motorSpeed -= 0.005;
 		negMSpeed += 0.005;
@@ -114,8 +115,6 @@ void stopMotors()
 }
 
 
-task main()
+/*task main()
 {
-	moveForward(24, 80);
-	wait10Msec(50);
-}
+}*/

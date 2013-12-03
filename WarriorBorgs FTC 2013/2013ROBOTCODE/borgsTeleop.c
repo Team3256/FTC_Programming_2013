@@ -32,10 +32,7 @@ task main()
 		motor[backRightMotor] = ((-100.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0));
 		//two feeding motors controlled by the left joystick in controller two
 		motor[feedingMotorUno] = ((100.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0));
-		motor[feedingMotorDos] = ((100.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0));
-		//conveyor motor controlled by the right joystick in controller two (should be pushed at the same time as left joystick in controller two is pushed)
-		motor[conveyorMotor] = ((100.0)*(joystick.joy2_y2/127.0)*(joystick.joy2_y2/127.0)*(joystick.joy2_y2/127.0));
-		//tilting motor moves a little bit down when button one in controller two is pressed
+		motor[feedingMotorDos] = ((100.0)*(joystick.joy2_y2/127.0)*(joystick.joy2_y2/127.0)*(joystick.joy2_y2/127.0));
 		if(joy2Btn(1))
 		{
 			motor[tiltingMotor] = 60;
@@ -57,8 +54,8 @@ task main()
 			StartTask(rollerRun);
 			wait10Msec(500);
 		}
-		//the robot puts itself in the lifting position when button seven in controller two is pressed
-		if(joy2Btn(7))
+		//the robot puts itself in the lifting position when button seven in controller one is pressed
+		if(joy1Btn(7))
 		{
 			motor[liftingMotor] = -100;
 			wait10Msec(100);
@@ -66,11 +63,27 @@ task main()
 			wait10Msec(3);
 		}
 		//this button brings the carriage down, to completely get the robot to hang
-		else if(joy2Btn(5))
+		else if(joy1Btn(5))
 		{
 			motor[liftingMotor] = 100;
 			wait10Msec(150);
 			motor[liftingMotor] = 0;
+			wait10Msec(3);
+		}
+		//the conveyor sucks in blocks
+		if(joy2Btn(7))
+		{
+			motor[conveyorMotor] = -100;
+			wait10Msec(300);
+			motor[conveyorMotor] = 0;
+			wait10Msec(3);
+		}
+		//the conveyor spits out blocks
+		else if(joy2Btn(5))
+		{
+			motor[conveyorMotor] = 100;
+			wait10Msec(300);
+			motor[conveyorMotor] = 0;
 			wait10Msec(3);
 		}
 		if(joy2Btn(8))
