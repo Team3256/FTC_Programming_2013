@@ -27,12 +27,28 @@ task irRightTesting()
 		{
 			stopMotors();
 			wait10Msec(40);
-			moveForward(4, 80);
-			wait10Msec(100);
+			//moveForward(4, 80);
+			//wait10Msec(100);
 			leftTwoWheelTurn(90, 80);
 			wait10Msec(95);
 			stopMotors();
 			wait10Msec(30);
+			motor[tiltingMotor] = 75;
+			wait10Msec(105);
+			motor[tiltingMotor] = 25;
+			wait10Msec(5);
+			motor[tiltingMotor] = 0;
+			wait10Msec(10);
+				motor[conveyorMotor] = 100;
+				wait10Msec(200);
+				motor[conveyorMotor] = 0;
+				wait10Msec(50);
+			motor[tiltingMotor] = -35;
+			wait10Msec(350);
+			motor[tiltingMotor] = -25;
+			wait10Msec(5);
+			motor[tiltingMotor] = 0;
+			wait10Msec(10);
 			rightTwoWheelTurn(90, 80);
 			wait10Msec(110);
 			stopMotors();
@@ -42,7 +58,7 @@ task irRightTesting()
 		else
 		{
 			motor[frontLeftMotor] = 100;
-			motor[frontRightMotor] = 100;
+			motor[frontRightMotor] = -100;
 			motor[backRightMotor] = 100;
 			motor[backLeftMotor] = 100;
 		}
@@ -63,6 +79,22 @@ task irLeftTesting()
 			wait10Msec(109);
 			stopMotors();
 			wait10Msec(30);
+			motor[tiltingMotor] = 75;
+			wait10Msec(105);
+			motor[tiltingMotor] = 25;
+			wait10Msec(5);
+			motor[tiltingMotor] = 0;
+			wait10Msec(10);
+				motor[conveyorMotor] = 100;
+				wait10Msec(200);
+				motor[conveyorMotor] = 0;
+				wait10Msec(50);
+			motor[tiltingMotor] = -35;
+			wait10Msec(350);
+			motor[tiltingMotor] = -25;
+			wait10Msec(5);
+			motor[tiltingMotor] = 0;
+			wait10Msec(10);
 			leftTwoWheelTurn(90, 80);
 			wait10Msec(95.5);
 			stopMotors();
@@ -72,7 +104,7 @@ task irLeftTesting()
 		else
 		{
 			motor[frontLeftMotor] = 100;
-			motor[frontRightMotor] = 100;
+			motor[frontRightMotor] = -100;
 			motor[backRightMotor] = 100;
 			motor[backLeftMotor] = 100;
 		}

@@ -15,32 +15,17 @@
 
 #include "driveTrain_Functions.c"
 #include "sensor_Functions.c"
+#include "JoystickDriver.c"
 
 task main()
 {
-	moveForward(3.5, 80);
+	moveForward(3, 80);
 	wait10Msec(50);
 	stopMotors();
 	wait10Msec(30);
 	rightTwoWheelTurn(45, 50);
-	wait10Msec(68);
+	wait10Msec(79);
 	stopMotors();
-			motor[tiltingMotor] = 75;
-			wait10Msec(85);
-			motor[tiltingMotor] = 25;
-			wait10Msec(5);
-			motor[tiltingMotor] = 0;
-			wait10Msec(10);
-				motor[conveyorMotor] = 100;
-				wait10Msec(200);
-				motor[conveyorMotor] = 0;
-				wait10Msec(50);
-			motor[tiltingMotor] = -35;
-			wait10Msec(60);
-			motor[tiltingMotor] = -25;
-			wait10Msec(5);
-			motor[tiltingMotor] = 0;
-			wait10Msec(10);
 	wait10Msec(30);
 	//robot moves backward, so it will be able to sense the ir beacon underneath first bucket
 	moveBackward(2, 80);
@@ -49,7 +34,7 @@ task main()
 	wait10Msec(30);
 	//keep going forward until ir sensor senses ir beacon
 	StartTask(irRightTesting);
-	wait10Msec(800);
+	wait10Msec(1300);
 	//wall follow the wall until the ultrasonic sensor stops sensing the black base underneath the pendulum
 	while (SensorValue[sonarSensor] < 60)
 	{
