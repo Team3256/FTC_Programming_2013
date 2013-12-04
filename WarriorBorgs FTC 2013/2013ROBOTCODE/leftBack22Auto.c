@@ -17,34 +17,37 @@
 
 task main()
 {
-	moveForward(3, 80);
+	//waitForStart();
+	moveForward(2, 80);
 	wait10Msec(50);
+	leftTwoWheelTurn(45, 50);
+	wait10Msec(13);
 	//positioned in first bucket from the left side of the pendulum
 	stopMotors();
 	wait10Msec(50);
 			motor[tiltingMotor] = 75;
-			wait10Msec(85);
+			wait10Msec(105);
 			motor[tiltingMotor] = 25;
 			wait10Msec(5);
 			motor[tiltingMotor] = 0;
 			wait10Msec(10);
 				motor[conveyorMotor] = 100;
-				wait10Msec(200);
+				wait10Msec(300);
 				motor[conveyorMotor] = 0;
 				wait10Msec(50);
-			motor[tiltingMotor] = -35;
-			wait10Msec(60);
+			motor[tiltingMotor] = -55;
+			wait10Msec(100);
 			motor[tiltingMotor] = -25;
 			wait10Msec(5);
 			motor[tiltingMotor] = 0;
 			wait10Msec(10);
 	leftTwoWheelTurn(45, 50);
-	wait10Msec(63);
-	moveForward(51, 80);
+	wait10Msec(60);
+	moveForward(54, 80);
 	wait10Msec(50);
 	leftTwoWheelTurn(90, 50);
-	wait10Msec(97);
-	moveBackward(40, 80);
-	wait10Msec(37);
+	wait10Msec(107);
+	moveBackward(43, 100);
+	wait10Msec(70);
 	//robot parked in the middle of the ramp
 }
