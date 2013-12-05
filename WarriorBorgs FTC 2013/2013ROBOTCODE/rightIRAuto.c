@@ -15,11 +15,11 @@
 
 #include "driveTrain_Functions.c"
 #include "sensor_Functions.c"
-
-
+#include "JoystickDriver.c"
 
 task main()
 {
+	//waitForStart();
 	moveForward(3, 80);
 	wait10Msec(50);
 	stopMotors();

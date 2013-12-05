@@ -45,7 +45,7 @@ task rollerStop() //roller motors stop running
 }
 
 // this task runs the motors to create a counter trap
-task blockCountTrap100()
+/*task blockCountTrap100()
 {
 	bool sensorReleased = true;
 	while(true)
@@ -66,10 +66,10 @@ task blockCountTrap100()
 			}
 		}
 	}
-}
+}*/
 
 //task that runs the motors, and counts the number of blocks that passes by the light sensor
-task rollerRun()
+/*task rollerRun()
 {
 	StartTask(blockCountTrap100);
 	while(true)
@@ -85,7 +85,7 @@ task rollerRun()
 			StartTask(conveyorStop);
 		}
 	}
-}
+}*/
 
 /*
 task main()

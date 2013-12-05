@@ -22,11 +22,11 @@ task main()
 	moveForward(3, 80);
 	wait10Msec(50);
 	rightTwoWheelTurn(45, 50);
-	wait10Msec(79);
+	wait10Msec(63);
 	moveForward(43.5, 80);
 	wait10Msec(50);
 	leftTwoWheelTurn(45, 50);
-	wait10Msec(163);
+	wait10Msec(140);
 	//robot positioned at the third box from the left side of the pendulum
 	stopMotors();
 	wait10Msec(100);
@@ -47,20 +47,20 @@ task main()
 			motor[tiltingMotor] = 0;
 			wait10Msec(10);
 	rightTwoWheelTurn(42, 50);
-	wait10Msec(162);
-	moveForward(14, 80);
+	wait10Msec(150);
+	moveForward(13, 80);
 	wait10Msec(50);
 	leftTwoWheelTurn(48, 50);
-	wait10Msec(60);
-	moveForward(25, 80);
+	wait10Msec(68);
+	moveForward(32, 80);
 	wait10Msec(50);
 	leftTwoWheelTurn(48, 50);
-	wait10Msec(58);
-	moveForward(33, 80);
+	wait10Msec(50);
+	moveForward(30.5, 80);
 	wait10Msec(50);
 	rightTwoWheelTurn(53, 50);
 	wait10Msec(153);
-	moveBackward(48, 80);
+	moveBackward(44, 80);
 	wait10Msec(50);
 	//robot is parked in the ramp, in the middle
 }

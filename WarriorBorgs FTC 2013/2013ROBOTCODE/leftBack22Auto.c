@@ -26,7 +26,7 @@ task main()
 	//positioned in first bucket from the left side of the pendulum
 	stopMotors();
 	wait10Msec(50);
-			motor[tiltingMotor] = 75;
+			motor[tiltingMotor] = 70;
 			wait10Msec(105);
 			motor[tiltingMotor] = 25;
 			wait10Msec(5);
@@ -37,7 +37,7 @@ task main()
 				motor[conveyorMotor] = 0;
 				wait10Msec(50);
 			motor[tiltingMotor] = -55;
-			wait10Msec(90);
+			wait10Msec(95);
 			motor[tiltingMotor] = -25;
 			wait10Msec(5);
 			motor[tiltingMotor] = 0;
@@ -47,8 +47,8 @@ task main()
 	moveForward(54, 80);
 	wait10Msec(50);
 	leftTwoWheelTurn(90, 50);
-	wait10Msec(107);
-	moveBackward(48, 100);
+	wait10Msec(95);
+	moveBackward(46, 100);
 	wait10Msec(70);
 	//robot parked in the middle of the ramp
 }

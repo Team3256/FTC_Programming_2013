@@ -49,11 +49,11 @@ task main()
 			wait10Msec(3);
 		}
 		//the counter for the conveyor and feeding motors run when button four in controller two is pressed
-		if(joy2Btn(4))
+		/*if(joy2Btn(4))
 		{
 			StartTask(rollerRun);
 			wait10Msec(500);
-		}
+		}*/
 		//the robot puts itself in the lifting position when button seven in controller one is pressed
 		if(joy1Btn(7))
 		{
@@ -74,7 +74,7 @@ task main()
 		if(joy2Btn(7))
 		{
 			motor[conveyorMotor] = -100;
-			wait10Msec(300);
+			wait10Msec(100);
 			motor[conveyorMotor] = 0;
 			wait10Msec(3);
 		}
@@ -82,7 +82,7 @@ task main()
 		else if(joy2Btn(5))
 		{
 			motor[conveyorMotor] = 100;
-			wait10Msec(300);
+			wait10Msec(100);
 			motor[conveyorMotor] = 0;
 			wait10Msec(3);
 		}
