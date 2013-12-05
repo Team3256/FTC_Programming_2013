@@ -20,7 +20,7 @@
 task main()
 {
 	//waitForStart();
-	moveForward(3, 80);
+	moveForward(0.5, 80);
 	wait10Msec(50);
 	stopMotors();
 	wait10Msec(30);
@@ -49,11 +49,11 @@ task main()
 	moveForward(8, 80);
 	wait10Msec(50);
 	leftTwoWheelTurn(48, 50);
-	wait10Msec(53.5);
+	wait10Msec(47);
 	moveForward(25, 80);
 	wait10Msec(50);
 	leftTwoWheelTurn(48, 50);
-	wait10Msec(58);
+	wait10Msec(50);
 	moveForward(34, 80);
 	wait10Msec(50);
 	rightTwoWheelTurn(53, 50);

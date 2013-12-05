@@ -22,11 +22,11 @@ task main()
 	moveForward(3, 80);
 	wait10Msec(50);
 	rightTwoWheelTurn(45, 50);
-	wait10Msec(63);
-	moveForward(43.5, 80);
+	wait10Msec(58);
+	moveForward(44.5, 80);
 	wait10Msec(50);
 	leftTwoWheelTurn(45, 50);
-	wait10Msec(140);
+	wait10Msec(135);
 	//robot positioned at the third box from the left side of the pendulum
 	stopMotors();
 	wait10Msec(100);
@@ -41,13 +41,13 @@ task main()
 				motor[conveyorMotor] = 0;
 				wait10Msec(50);
 			motor[tiltingMotor] = -35;
-			wait10Msec(135);
+			wait10Msec(100);
 			motor[tiltingMotor] = -25;
 			wait10Msec(10);
 			motor[tiltingMotor] = 0;
 			wait10Msec(10);
 	rightTwoWheelTurn(42, 50);
-	wait10Msec(150);
+	wait10Msec(147);
 	moveForward(13, 80);
 	wait10Msec(50);
 	leftTwoWheelTurn(48, 50);
