@@ -74,17 +74,17 @@ task main()
 		if(joy2Btn(7))
 		{
 			motor[conveyorMotor] = -100;
-			wait10Msec(100);
+			/*wait10Msec(200);
 			motor[conveyorMotor] = 0;
-			wait10Msec(3);
+			wait10Msec(3);*/
 		}
 		//the conveyor spits out blocks
 		else if(joy2Btn(5))
 		{
 			motor[conveyorMotor] = 100;
-			wait10Msec(100);
+			/*wait10Msec(800);
 			motor[conveyorMotor] = 0;
-			wait10Msec(3);
+			wait10Msec(3);*/
 		}
 		if(joy2Btn(8))
 		{
