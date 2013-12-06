@@ -33,20 +33,38 @@ task main()
 		//two feeding motors controlled by the left joystick in controller two
 		motor[feedingMotorUno] = ((100.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0));
 		motor[feedingMotorDos] = ((100.0)*(joystick.joy2_y2/127.0)*(joystick.joy2_y2/127.0)*(joystick.joy2_y2/127.0));
+		if(joy1Btn(6))
+		{
+			motor[frontLeftMotor] = ((-75.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0));
+			motor[backLeftMotor] = ((-75.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0));
+			motor[frontRightMotor] = ((75.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0));
+			motor[backRightMotor] = ((-75.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0));
+		}
+		else
+		{
+			motor[frontLeftMotor] = ((-100.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0));
+			motor[backLeftMotor] = ((-100.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0));
+			motor[frontRightMotor] = ((100.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0));
+			motor[backRightMotor] = ((-100.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0));
+		}
 		if(joy2Btn(1))
 		{
 			motor[tiltingMotor] = 60;
-			wait10Msec(5);
+			/*wait10Msec(5);
 			motor[tiltingMotor] = 0;
-			wait10Msec(3);
+			wait10Msec(3);*/
 		}
 		//tilting motor moves a little bit up when button two in controller two is pressed
-		if(joy2Btn(2))
+		else if(joy2Btn(2))
 		{
 			motor[tiltingMotor] = -60;
-			wait10Msec(5);
+			/*wait10Msec(5);
 			motor[tiltingMotor] = 0;
-			wait10Msec(3);
+			wait10Msec(3);*/
+		}
+		else
+		{
+			motor[tiltingMotor] = 0;
 		}
 		//the counter for the conveyor and feeding motors run when button four in controller two is pressed
 		/*if(joy2Btn(4))
@@ -58,17 +76,21 @@ task main()
 		if(joy1Btn(7))
 		{
 			motor[liftingMotor] = -100;
-			wait10Msec(100);
+			/*wait10Msec(100);
 			motor[liftingMotor] = 0;
-			wait10Msec(3);
+			wait10Msec(3);*/
 		}
 		//this button brings the carriage down, to completely get the robot to hang
 		else if(joy1Btn(5))
 		{
 			motor[liftingMotor] = 100;
-			wait10Msec(150);
+			/*wait10Msec(150);
 			motor[liftingMotor] = 0;
-			wait10Msec(3);
+			wait10Msec(3);*/
+		}
+		else
+		{
+			motor[liftingMotor] = 0;
 		}
 		//the conveyor sucks in blocks
 		if(joy2Btn(7))
@@ -86,6 +108,10 @@ task main()
 			motor[conveyorMotor] = 0;
 			wait10Msec(3);*/
 		}
+		else
+		{
+			motor[conveyorMotor] = 0;
+		}
 		if(joy2Btn(8))
 		{
 			motor[tiltingMotor] = 75;
@@ -96,13 +122,13 @@ task main()
 			wait10Msec(10);
 		}
 		//the robot runs its flag motor to raise the flag, when button eight in controller two is pressed
-		if(joy2Btn(6))
+		/*if(joy2Btn(6))
 		{
 			motor[flagMotor] = 100;
 			wait10Msec(600);
 			motor[flagMotor] = 0;
 			wait10Msec(3);
-		}
+		}*/
 		//the up tophat brings up the tiltometer to its highest position
 		if(joystick.joy2_TopHat == 0)
 	  {
