@@ -18,16 +18,16 @@
 
 task main()
 {
-	//waitForStart();
-	moveForward(5, 80);
+	waitForStart();
+	moveForward(2, 80);
 	wait10Msec(50);
-	rightTwoWheelTurn(30, 50);
+	rightTwoWheelTurn(10, 50);
 	wait10Msec(40);
 	//robot stops at first bucket from the right side of the pendulum
 	stopMotors();
 	wait10Msec(100);
 			motor[tiltingMotor] = 75;
-			wait10Msec(85);
+			wait10Msec(105);
 			motor[tiltingMotor] = 25;
 			wait10Msec(5);
 			motor[tiltingMotor] = 0;
@@ -36,13 +36,15 @@ task main()
 				wait10Msec(200);
 				motor[conveyorMotor] = 0;
 				wait10Msec(50);
-			motor[tiltingMotor] = -35;
-			wait10Msec(60);
+			motor[tiltingMotor] = -45;
+			wait10Msec(110);
 			motor[tiltingMotor] = -25;
 			wait10Msec(5);
 			motor[tiltingMotor] = 0;
 			wait10Msec(10);
-	rightTwoWheelTurn(35, 50);
+	moveForward(3, 80);
+	wait10Msec(50);
+	rightTwoWheelTurn(50, 50);
 	wait10Msec(83);
 	moveForward(25, 80);
 	wait10Msec(50);

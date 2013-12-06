@@ -18,7 +18,7 @@
 
 task main()
 {
-	//waitForStart();
+	waitForStart();
 	moveForward(2, 80);
 	wait10Msec(50);
 	leftTwoWheelTurn(45, 50);
@@ -37,7 +37,7 @@ task main()
 				motor[conveyorMotor] = 0;
 				wait10Msec(50);
 			motor[tiltingMotor] = -55;
-			wait10Msec(95);
+			wait10Msec(80);
 			motor[tiltingMotor] = -25;
 			wait10Msec(5);
 			motor[tiltingMotor] = 0;

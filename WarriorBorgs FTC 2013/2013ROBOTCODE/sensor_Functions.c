@@ -27,14 +27,14 @@ task irRightTesting()
 		{
 			stopMotors();
 			wait10Msec(40);
-			moveForward(3.5, 80);
+			moveForward(0.5, 80);
 			wait10Msec(100);
 			leftTwoWheelTurn(90, 80);
-			wait10Msec(101);
+			wait10Msec(98.5);
 			stopMotors();
 			wait10Msec(30);
-			motor[tiltingMotor] = 75;
-			wait10Msec(105);
+			motor[tiltingMotor] = 55;
+			wait10Msec(130);
 			motor[tiltingMotor] = 25;
 			wait10Msec(5);
 			motor[tiltingMotor] = 0;
@@ -44,13 +44,15 @@ task irRightTesting()
 				motor[conveyorMotor] = 0;
 				wait10Msec(50);
 			motor[tiltingMotor] = -35;
-			wait10Msec(100);
+			wait10Msec(125);
 			motor[tiltingMotor] = -25;
 			wait10Msec(5);
 			motor[tiltingMotor] = 0;
 			wait10Msec(10);
+			stopMotors();
+			wait10Msec(100);
 			rightTwoWheelTurn(90, 80);
-			wait10Msec(130);
+			wait10Msec(215);
 			stopMotors();
 			wait10Msec(100);
 			break;

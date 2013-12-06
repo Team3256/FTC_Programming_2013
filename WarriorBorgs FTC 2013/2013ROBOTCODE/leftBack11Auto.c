@@ -18,7 +18,7 @@
 
 task main()
 {
-	//waitForStart();
+	waitForStart();
 	moveForward(3, 80);
 	wait10Msec(50);
 	rightTwoWheelTurn(45, 50);
@@ -41,13 +41,13 @@ task main()
 				motor[conveyorMotor] = 0;
 				wait10Msec(50);
 			motor[tiltingMotor] = -35;
-			wait10Msec(100);
+			wait10Msec(105);
 			motor[tiltingMotor] = -25;
 			wait10Msec(10);
 			motor[tiltingMotor] = 0;
 			wait10Msec(10);
 	rightTwoWheelTurn(42, 50);
-	wait10Msec(147);
+	wait10Msec(143);
 	moveForward(13, 80);
 	wait10Msec(50);
 	leftTwoWheelTurn(48, 50);
@@ -59,7 +59,7 @@ task main()
 	moveForward(30.5, 80);
 	wait10Msec(50);
 	rightTwoWheelTurn(53, 50);
-	wait10Msec(153);
+	wait10Msec(165);
 	moveBackward(44, 80);
 	wait10Msec(50);
 	//robot is parked in the ramp, in the middle
