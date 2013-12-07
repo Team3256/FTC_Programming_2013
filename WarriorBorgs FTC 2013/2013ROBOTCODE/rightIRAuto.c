@@ -25,10 +25,10 @@ task main()
 	stopMotors();
 	wait10Msec(30);
 	leftTwoWheelTurn(45, 50);
-	wait10Msec(71);
+	wait10Msec(69);
 	stopMotors();
 	wait10Msec(30);
-	moveBackward(2, 80);
+	moveBackward(1.25, 80);
 	wait10Msec(50);
 	//robot moves backward, so it will be able to sense the ir beacon underneath first bucket
 	stopMotors();
@@ -46,7 +46,7 @@ task main()
 	}
 	stopMotors();
 	wait10Msec(30);
-	moveForward(8, 80);
+	moveForward(7.25, 80);
 	wait10Msec(50);
 	rightTwoWheelTurn(48, 50);
 	wait10Msec(60);
