@@ -19,7 +19,7 @@
 
 task main()
 {
-	//waitForStart();
+	waitForStart();
 	moveForward(0.15, 80);
 	wait10Msec(50);
 	stopMotors();
@@ -35,7 +35,7 @@ task main()
 	wait10Msec(30);
 	//keep going forward until ir sensor senses ir beacon
 	StartTask(irRightTesting);
-	wait10Msec(1100);
+	wait10Msec(1500);
 	//wall follow the wall until the ultrasonic sensor stops sensing the black base underneath the pendulum
 	while (SensorValue[sonarSensor] < 60)
 	{
@@ -46,10 +46,10 @@ task main()
 	}
 	stopMotors();
 	wait10Msec(30);
-	moveForward(3.5, 80);
+	moveForward(2.25, 80);
 	wait10Msec(50);
 	leftTwoWheelTurn(48, 50);
-	wait10Msec(56);
+	wait10Msec(65);
 	moveForward(25, 80);
 	wait10Msec(50);
 	leftTwoWheelTurn(48, 50);

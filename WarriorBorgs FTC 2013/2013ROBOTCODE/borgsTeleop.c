@@ -73,7 +73,7 @@ task main()
 			wait10Msec(500);
 		}*/
 		//the robot puts itself in the lifting position when button seven in controller one is pressed
-		if(joy1Btn(7))
+		if(joy1Btn(7) && joy1Btn(8))
 		{
 			motor[liftingMotor] = -100;
 			/*wait10Msec(100);
