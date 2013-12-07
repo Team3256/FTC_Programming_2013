@@ -49,7 +49,7 @@ task main()
 		}
 		if(joy2Btn(1))
 		{
-			motor[tiltingMotor] = 60;
+			motor[tiltingMotor] = 50;
 			/*wait10Msec(5);
 			motor[tiltingMotor] = 0;
 			wait10Msec(3);*/
@@ -57,7 +57,7 @@ task main()
 		//tilting motor moves a little bit up when button two in controller two is pressed
 		else if(joy2Btn(2))
 		{
-			motor[tiltingMotor] = -60;
+			motor[tiltingMotor] = -50;
 			/*wait10Msec(5);
 			motor[tiltingMotor] = 0;
 			wait10Msec(3);*/
@@ -114,7 +114,7 @@ task main()
 		}
 		if(joy2Btn(8))
 		{
-			motor[tiltingMotor] = 75;
+			motor[tiltingMotor] = 40;
 			wait10Msec(60);
 			motor[tiltingMotor] = 25;
 			wait10Msec(5);
