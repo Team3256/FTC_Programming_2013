@@ -19,48 +19,50 @@
 task main()
 {
 	waitForStart();
-	moveForward(3, 80);
-	wait10Msec(50);
-	rightTwoWheelTurn(45, 50);
-	wait10Msec(79);
-	moveForward(43.5, 80);
+	stopMotors();
+	wait10Msec(500);
+	moveForward(0.25, 80);
 	wait10Msec(50);
 	leftTwoWheelTurn(45, 50);
-	wait10Msec(163);
-	//robot positioned at the third box from the left side of the pendulum
+	wait10Msec(56);
+	moveForward(41.5, 80);
+	wait10Msec(50);
+	rightTwoWheelTurn(45, 50);
+	wait10Msec(135);
+	//robot stopped in the third bucket from the right side of the pendulum
 	stopMotors();
 	wait10Msec(100);
 			motor[tiltingMotor] = 75;
-			wait10Msec(105);
+			wait10Msec(98);
 			motor[tiltingMotor] = 25;
 			wait10Msec(5);
 			motor[tiltingMotor] = 0;
 			wait10Msec(10);
 				motor[conveyorMotor] = 100;
-				wait10Msec(350);
+				wait10Msec(200);
 				motor[conveyorMotor] = 0;
 				wait10Msec(50);
 			motor[tiltingMotor] = -35;
-			wait10Msec(135);
+			wait10Msec(105);
 			motor[tiltingMotor] = -25;
-			wait10Msec(10);
+			wait10Msec(5);
 			motor[tiltingMotor] = 0;
 			wait10Msec(10);
-	rightTwoWheelTurn(42, 50);
-	wait10Msec(162);
-	moveForward(14, 80);
+	leftTwoWheelTurn(42, 50);
+	wait10Msec(127);
+	moveForward(16, 80);
 	wait10Msec(50);
-	leftTwoWheelTurn(48, 50);
-	wait10Msec(60);
+	rightTwoWheelTurn(48, 50);
+	wait10Msec(53.5);
 	moveForward(25, 80);
 	wait10Msec(50);
-	leftTwoWheelTurn(48, 50);
+	rightTwoWheelTurn(48, 50);
 	wait10Msec(58);
-	moveForward(33, 80);
+	moveForward(36, 80);
 	wait10Msec(50);
-	rightTwoWheelTurn(53, 50);
-	wait10Msec(153);
-	moveBackward(48, 80);
+	leftTwoWheelTurn(53, 50);
+	wait10Msec(115);
+	moveBackward(49, 80);
 	wait10Msec(50);
-	//robot is parked in the ramp, in the middle
+	//robot parked in the middle of the ramp
 }
