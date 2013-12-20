@@ -20,6 +20,8 @@
 #include "sensor_Functions.c"
 #include "roller_Functions.c"
 
+int ticksPerDegree=5760/360;
+
 task main()
 {
 	waitForStart();
@@ -36,10 +38,10 @@ task main()
 		motor[feedingMotorDos] = ((100.0)*(joystick.joy2_y2/127.0)*(joystick.joy2_y2/127.0)*(joystick.joy2_y2/127.0));
 		if(joy1Btn(6))
 		{
-			motor[frontLeftMotor] = ((-0.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0));
-			motor[backLeftMotor] = ((-0.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0));
-			motor[frontRightMotor] = ((0.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0));
-			motor[backRightMotor] = ((-0.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0));
+			motor[frontLeftMotor] = ((-25.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0));
+			motor[backLeftMotor] = ((-25.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0));
+			motor[frontRightMotor] = ((25.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0));
+			motor[backRightMotor] = ((-25.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0));
 		}
 		else
 		{
@@ -48,14 +50,14 @@ task main()
 			motor[frontRightMotor] = ((100.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0));
 			motor[backRightMotor] = ((-100.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0));
 		}
-		if(joy2Btn(1))
+		if(joystick.joy2_TopHat == 0)
 		{
-			motor[tiltingMotor] = 60;
+				motor[tiltingMotor]=80;
 		}
 		//tilting motor moves a little bit up when button two in controller two is pressed
-		else if(joy2Btn(2))
+		else if(joystick.joy2_TopHat == 4)
 		{
-			motor[tiltingMotor] = -60;
+				motor[tiltingMotor]=-80;
 		}
 		else
 		{
@@ -91,54 +93,97 @@ task main()
 		}
 		if(joy2Btn(8))
 		{
-			motor[tiltingMotor] = 75;
-			wait10Msec(60);
-			motor[tiltingMotor] = 25;
-			wait10Msec(5);
-			motor[tiltingMotor] = 0;
-			wait10Msec(10);
+					int nTicks =0;
+			nTicks= ticksPerDegree*105;
+			nMotorEncoder[tiltingMotor]=0;
+			while (abs(nMotorEncoder[tiltingMotor]) < nTicks )
+			{
+				motor[tiltingMotor]=65;
+			}
+			motor[tiltingMotor]=0;
+			nMotorEncoder[tiltingMotor]=0;
 		}
+		else
+			motor[tiltingMotor] = 0;
 		//the robot runs its flag motor to raise the flag, when button eight in controller two is pressed
 
 		//the up tophat brings up the tiltometer to its highest position
-		if(joystick.joy2_TopHat == 0)
+		if(joy2Btn(4))
 	  {
-	  	motor[tiltingMotor] = 75;
+	  	/*motor[tiltingMotor] = 75;
 			wait10Msec(80);
 			motor[tiltingMotor] = 25;
 			wait10Msec(5);
 			motor[tiltingMotor] = 0;
-			wait10Msec(10);
+			wait10Msec(10);*/
+			int nTicks =0;
+			nTicks= ticksPerDegree*120;
+			nMotorEncoder[tiltingMotor]=0;
+			while (abs(nMotorEncoder[tiltingMotor]) < nTicks )
+			{
+				motor[tiltingMotor]=75;
+			}
+			motor[tiltingMotor]=0;
+			nMotorEncoder[tiltingMotor]=0;
 	  }
 	  //the right tophat brings up the tiltometer to its middle position
-	  if(joystick.joy2_TopHat == 2)
+	  else if(joy2Btn(3))
 	  {
-	  	motor[tiltingMotor] = 75;
+	  	/*motor[tiltingMotor] = 75;
 			wait10Msec(85);
 			motor[tiltingMotor] = 25;
 			wait10Msec(5);
 			motor[tiltingMotor] = 0;
-			wait10Msec(10);
+			wait10Msec(10);*/
+			int nTicks =0;
+			nTicks= ticksPerDegree*150;
+			nMotorEncoder[tiltingMotor]=0;
+			while (abs(nMotorEncoder[tiltingMotor]) < nTicks )
+			{
+				motor[tiltingMotor]=75;
+			}
+			motor[tiltingMotor]=0;
+			nMotorEncoder[tiltingMotor]=0;
 	  }
 	  //the down tophat brings up the tiltometer to its lowest position
-	  if(joystick.joy2_TopHat == 4)
+	  else if(joy2Btn(2))
 	  {
-	  	motor[tiltingMotor] = 75;
+	  	/*motor[tiltingMotor] = 75;
 			wait10Msec(90);
 			motor[tiltingMotor] = 25;
 			wait10Msec(7);
 			motor[tiltingMotor] = 0;
-			wait10Msec(4);
+			wait10Msec(4);*/
+			int nTicks =0;
+			nTicks= ticksPerDegree*175;
+			nMotorEncoder[tiltingMotor]=0;
+			while (abs(nMotorEncoder[tiltingMotor]) < nTicks )
+			{
+				motor[tiltingMotor]=75;
+			}
+			motor[tiltingMotor]=0;
+			nMotorEncoder[tiltingMotor]=0;
 	  }
 	  //the left tophat brings the tiltometer to its base position
-	  if(joystick.joy2_TopHat == 6)
+	  else if(joy2Btn(1))
 	  {
-	  	motor[tiltingMotor] = -30;
+	  	/*motor[tiltingMotor] = -30;
 			wait10Msec(57);
 			motor[tiltingMotor] = -25;
 			wait10Msec(20);
 			motor[tiltingMotor] = 0;
-			wait10Msec(4);
+			wait10Msec(4);*/
+			int nTicks =0;
+			nTicks= ticksPerDegree*110;
+			nMotorEncoder[tiltingMotor]=0;
+			while (abs(nMotorEncoder[tiltingMotor]) < nTicks )
+			{
+				motor[tiltingMotor]=-75;
+			}
+			motor[tiltingMotor]=0;
+			nMotorEncoder[tiltingMotor]=0;
 	  }
+	  else
+	  	motor[tiltingMotor] = 0;
 	}
 }
