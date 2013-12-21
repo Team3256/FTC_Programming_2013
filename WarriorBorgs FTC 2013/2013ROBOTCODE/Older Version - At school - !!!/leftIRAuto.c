@@ -4,6 +4,7 @@
 #pragma config(Sensor, S4,     sonarSensor,    sensorSONAR)
 #pragma config(Motor,  motorA,          feedingMotorUno, tmotorNXT, PIDControl, encoder)
 #pragma config(Motor,  motorB,          feedingMotorDos, tmotorNXT, PIDControl, encoder)
+#pragma config(Motor,  motorC,          flagPositionMotor, tmotorNXT, PIDControl, encoder)
 #pragma config(Motor,  mtr_S1_C1_1,     frontLeftMotor, tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S1_C1_2,     backLeftMotor, tmotorTetrix, openLoop, encoder)
 #pragma config(Motor,  mtr_S1_C2_1,     frontRightMotor, tmotorTetrix, openLoop)
@@ -21,12 +22,12 @@
 task main()
 {
 	waitForStart();
-	moveForward(0.15, 80);
+	moveForward(2, 80);
 	wait10Msec(50);
 	stopMotors();
 	wait10Msec(30);
 	rightTwoWheelTurn(45, 40);
-	wait10Msec(85);
+	wait10Msec(90);
 	stopMotors();
 	wait10Msec(30);
 	//robot moves backward, so it will be able to sense the ir beacon underneath first bucket

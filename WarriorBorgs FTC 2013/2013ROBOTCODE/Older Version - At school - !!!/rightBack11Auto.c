@@ -4,6 +4,7 @@
 #pragma config(Sensor, S4,     sonarSensor,    sensorSONAR)
 #pragma config(Motor,  motorA,          feedingMotorUno, tmotorNXT, PIDControl, encoder)
 #pragma config(Motor,  motorB,          feedingMotorDos, tmotorNXT, PIDControl, encoder)
+#pragma config(Motor,  motorC,          flagPositionMotor, tmotorNXT, PIDControl, encoder)
 #pragma config(Motor,  mtr_S1_C1_1,     frontLeftMotor, tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S1_C1_2,     backLeftMotor, tmotorTetrix, openLoop, encoder)
 #pragma config(Motor,  mtr_S1_C2_1,     frontRightMotor, tmotorTetrix, openLoop)

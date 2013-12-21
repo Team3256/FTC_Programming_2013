@@ -4,6 +4,7 @@
 #pragma config(Sensor, S4,     sonarSensor,    sensorSONAR)
 #pragma config(Motor,  motorA,          feedingMotorUno, tmotorNXT, PIDControl, encoder)
 #pragma config(Motor,  motorB,          feedingMotorDos, tmotorNXT, PIDControl, encoder)
+#pragma config(Motor,  motorC,          flagPositionMotor, tmotorNXT, PIDControl, encoder)
 #pragma config(Motor,  mtr_S1_C1_1,     frontLeftMotor, tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S1_C1_2,     backLeftMotor, tmotorTetrix, openLoop, encoder)
 #pragma config(Motor,  mtr_S1_C2_1,     frontRightMotor, tmotorTetrix, openLoop)
@@ -35,7 +36,8 @@ task main()
 		motor[backRightMotor] = ((-100.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0));
 		//two feeding motors controlled by the left joystick in controller two
 		motor[feedingMotorUno] = ((100.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0));
-		motor[feedingMotorDos] = ((100.0)*(joystick.joy2_y2/127.0)*(joystick.joy2_y2/127.0)*(joystick.joy2_y2/127.0));
+		motor[feedingMotorDos] = ((100.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0));
+		motor[conveyorMotor] = ((100.0)*(joystick.joy2_y2/127.0)*(joystick.joy2_y2/127.0)*(joystick.joy2_y2/127.0));
 		if(joy1Btn(6))
 		{
 			motor[frontLeftMotor] = ((-25.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0));
@@ -63,6 +65,28 @@ task main()
 		{
 			motor[tiltingMotor] = 0;
 		}
+		if(joystick.joy2_TopHat == 2)
+		{
+			nMotorEncoder[flagPositionMotor]=0;
+ 			while(nMotorEncoder[flagPositionMotor] <= 190)
+ 			{
+				motor[flagPositionMotor]=35;
+			}
+			nMotorEncoder[flagPositionMotor]=0;
+		}
+		else if(joystick.joy2_TopHat == 6)
+		{
+			nMotorEncoder[flagPositionMotor]=0;
+ 			while(nMotorEncoder[flagPositionMotor] <= 190)
+ 			{
+				motor[flagPositionMotor]=-35;
+			}
+			nMotorEncoder[flagPositionMotor]=0;
+		}
+		else
+		{
+				motor[flagPositionMotor]=0;
+		}
 		//the robot puts itself in the lifting position when button seven in controller one is pressed
 		if(joy1Btn(7) && joy1Btn(8))
 		{
@@ -77,6 +101,7 @@ task main()
 		{
 			motor[liftingMotor] = 0;
 		}
+		/*
 		//the conveyor sucks in blocks
 		if(joy2Btn(7))
 		{
@@ -91,6 +116,7 @@ task main()
 		{
 			motor[conveyorMotor] = 0;
 		}
+		*/
 		if(joy2Btn(8))
 		{
 					int nTicks =0;
@@ -105,7 +131,14 @@ task main()
 		}
 		else
 			motor[tiltingMotor] = 0;
+
 		//the robot runs its flag motor to raise the flag, when button eight in controller two is pressed
+		if(joy2Btn(7))
+			motor[flagMotor] = 100;
+		else if(joy2Btn(5))
+			motor[flagMotor] = -100;
+		else
+			motor[flagMotor] = 0;
 
 		//the up tophat brings up the tiltometer to its highest position
 		if(joy2Btn(4))
