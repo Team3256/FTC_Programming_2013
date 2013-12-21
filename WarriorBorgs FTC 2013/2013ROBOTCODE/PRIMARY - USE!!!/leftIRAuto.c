@@ -18,6 +18,7 @@
 #include "driveTrain_Functions.c"
 #include "sensor_Functions.c"
 #include "JoystickDriver.c"
+#include "rollerAndArm_Functions.c"
 
 task main()
 {

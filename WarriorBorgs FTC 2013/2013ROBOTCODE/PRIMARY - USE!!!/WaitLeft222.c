@@ -17,6 +17,7 @@
 
 #include "driveTrain_Functions.c"
 #include "JoystickDriver.c"
+#include "rollerAndArm_Functions.c"
 
 task main()
 {
@@ -47,15 +48,16 @@ task main()
 			wait10Msec(5);
 			motor[tiltingMotor] = 0;
 			wait10Msec(10);*/
-			int nTicks =0;
-			nTicks= ticksPerDegree*150;
-			nMotorEncoder[tiltingMotor]=0;
-			while (abs(nMotorEncoder[tiltingMotor]) < nTicks )
-			{
-				motor[tiltingMotor]=75;
-			}
-			motor[tiltingMotor]=0;
-			nMotorEncoder[tiltingMotor]=0;
+
+			armUp();
+			wait10Msec(200);
+			conveyorBackward();
+			wait10Msec(200);
+			conveyorStop();
+			wait10Msec(100);
+			armDown();
+			wait10Msec(200);
+
 	leftTwoWheelTurn(45, 50);
 	wait10Msec(60);
 	moveForward(54, 80);
