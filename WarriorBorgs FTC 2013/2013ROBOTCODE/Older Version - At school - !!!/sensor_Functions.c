@@ -33,6 +33,7 @@ task irRightTesting()
 			wait10Msec(98.5);
 			stopMotors();
 			wait10Msec(30);
+			/*
 			motor[tiltingMotor] = 55;
 			wait10Msec(138);
 			motor[tiltingMotor] = 25;
@@ -54,8 +55,19 @@ task irRightTesting()
 			motor[frontLeftMotor] = 100;
 			motor[backLeftMotor] = 100;
 			motor[frontRightMotor] = 100;
-			motor[backRightMotor] = -100;
-			//rightTwoWheelTurn(90, 40);
+			motor[backRightMotor] = -100;*/
+
+			int nTicks =0;
+			nTicks= ticksPerDegree*150;
+			nMotorEncoder[tiltingMotor]=0;
+			while (abs(nMotorEncoder[tiltingMotor]) < nTicks )
+			{
+				motor[tiltingMotor]=75;
+			}
+			motor[tiltingMotor]=0;
+			nMotorEncoder[tiltingMotor]=0;
+
+			rightTwoWheelTurn(90, 40);
 			wait10Msec(110);
 			stopMotors();
 			wait10Msec(100);
@@ -85,6 +97,8 @@ task irLeftTesting()
 			wait10Msec(109);
 			stopMotors();
 			wait10Msec(30);
+
+			/*
 			motor[tiltingMotor] = 55;
 			wait10Msec(162);
 			motor[tiltingMotor] = 25;
@@ -100,7 +114,17 @@ task irLeftTesting()
 			motor[tiltingMotor] = -25;
 			wait10Msec(5);
 			motor[tiltingMotor] = 0;
-			wait10Msec(10);
+			wait10Msec(10);*/
+			int nTicks =0;
+			nTicks= ticksPerDegree*150;
+			nMotorEncoder[tiltingMotor]=0;
+			while (abs(nMotorEncoder[tiltingMotor]) < nTicks )
+			{
+				motor[tiltingMotor]=75;
+			}
+			motor[tiltingMotor]=0;
+			nMotorEncoder[tiltingMotor]=0;
+
 			leftTwoWheelTurn(90, 80);
 			wait10Msec(95.5);
 			stopMotors();

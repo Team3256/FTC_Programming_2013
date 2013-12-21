@@ -28,6 +28,7 @@ task main()
 	//positioned in first bucket from the left side of the pendulum
 	stopMotors();
 	wait10Msec(50);
+	/*
 			motor[tiltingMotor] = 70;
 			wait10Msec(105);
 			motor[tiltingMotor] = 25;
@@ -43,7 +44,17 @@ task main()
 			motor[tiltingMotor] = -25;
 			wait10Msec(5);
 			motor[tiltingMotor] = 0;
-			wait10Msec(10);
+			wait10Msec(10);*/
+			int nTicks =0;
+			nTicks= ticksPerDegree*150;
+			nMotorEncoder[tiltingMotor]=0;
+			while (abs(nMotorEncoder[tiltingMotor]) < nTicks )
+			{
+				motor[tiltingMotor]=75;
+			}
+			motor[tiltingMotor]=0;
+			nMotorEncoder[tiltingMotor]=0;
+
 	leftTwoWheelTurn(45, 50);
 	wait10Msec(60);
 	moveForward(54, 80);

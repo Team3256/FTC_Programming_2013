@@ -32,6 +32,7 @@ task main()
 	//robot positioned at the third box from the left side of the pendulum
 	stopMotors();
 	wait10Msec(100);
+	/*
 			motor[tiltingMotor] = 75;
 			wait10Msec(105);
 			motor[tiltingMotor] = 25;
@@ -47,7 +48,17 @@ task main()
 			motor[tiltingMotor] = -25;
 			wait10Msec(10);
 			motor[tiltingMotor] = 0;
-			wait10Msec(10);
+			wait10Msec(10);*/
+			int nTicks =0;
+			nTicks= ticksPerDegree*150;
+			nMotorEncoder[tiltingMotor]=0;
+			while (abs(nMotorEncoder[tiltingMotor]) < nTicks )
+			{
+				motor[tiltingMotor]=75;
+			}
+			motor[tiltingMotor]=0;
+			nMotorEncoder[tiltingMotor]=0;
+
 	rightTwoWheelTurn(42, 50);
 	wait10Msec(143);
 	moveForward(13, 80);
