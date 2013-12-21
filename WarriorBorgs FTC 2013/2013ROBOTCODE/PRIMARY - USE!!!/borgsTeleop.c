@@ -40,10 +40,10 @@ task main()
 		motor[conveyorMotor] = ((100.0)*(joystick.joy2_y2/127.0)*(joystick.joy2_y2/127.0)*(joystick.joy2_y2/127.0));
 		if(joy1Btn(6))
 		{
-			motor[frontLeftMotor] = ((-25.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0));
-			motor[backLeftMotor] = ((-25.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0));
-			motor[frontRightMotor] = ((25.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0));
-			motor[backRightMotor] = ((-25.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0));
+			motor[frontLeftMotor] = ((-45.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0));
+			motor[backLeftMotor] = ((-45.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0)*(joystick.joy1_y2/127.0));
+			motor[frontRightMotor] = ((45.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0));
+			motor[backRightMotor] = ((-45.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0));
 		}
 		else
 		{
@@ -206,7 +206,8 @@ task main()
 			wait10Msec(20);
 			motor[tiltingMotor] = 0;
 			wait10Msec(4);*/
-			int nTicks =0;
+			motor[tiltingMotor] = -85;
+			/*int nTicks =0;
 			nTicks= ticksPerDegree*110;
 			nMotorEncoder[tiltingMotor]=0;
 			while (abs(nMotorEncoder[tiltingMotor]) < nTicks )
@@ -214,7 +215,7 @@ task main()
 				motor[tiltingMotor]=-75;
 			}
 			motor[tiltingMotor]=0;
-			nMotorEncoder[tiltingMotor]=0;
+			nMotorEncoder[tiltingMotor]=0;*/
 	  }
 	  else
 	  	motor[tiltingMotor] = 0;
