@@ -45,8 +45,9 @@ void rollerStop() //roller motors stop running
 
 void armUp()
 {
+	int ticksPerDegree2 = 5760/360;
 	int nTicks =0;
-	nTicks= ticksPerDegree*150;
+	nTicks= ticksPerDegree2*150;
 	nMotorEncoder[tiltingMotor]=0;
 	while (abs(nMotorEncoder[tiltingMotor]) < nTicks)
 	{
@@ -57,8 +58,9 @@ void armUp()
 }
 void armDown()
 {
+	int ticksPerDegree3 = 5760/360;
 	int nTicks =0;
-	nTicks= ticksPerDegree*120;
+	nTicks= ticksPerDegree3*120;
 	nMotorEncoder[tiltingMotor]=0;
 	while (abs(nMotorEncoder[tiltingMotor]) < nTicks)
 	{
