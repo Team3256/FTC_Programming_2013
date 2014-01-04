@@ -31,32 +31,32 @@ task main()
 	//robot stops at first bucket from the right side of the pendulum
 	stopMotors();
 	wait10Msec(100);
-	/*
-			motor[tiltingMotor] = 75;
-			wait10Msec(105);
-			motor[tiltingMotor] = 25;
-			wait10Msec(5);
-			motor[tiltingMotor] = 0;
-			wait10Msec(10);
-				motor[conveyorMotor] = 100;
-				wait10Msec(200);
-				motor[conveyorMotor] = 0;
-				wait10Msec(50);
-			motor[tiltingMotor] = -45;
-			wait10Msec(110);
-			motor[tiltingMotor] = -25;
-			wait10Msec(5);
-			motor[tiltingMotor] = 0;
-			wait10Msec(10);*/
 
-			armUp();
+
+	int ticksPerDegree2 = 5760/360;
+			int nTicks =0;
+			nTicks= ticksPerDegree2*150;
+			nMotorEncoder[tiltingMotor]=0;
+			while (abs(nMotorEncoder[tiltingMotor]) < nTicks)
+			{
+				motor[tiltingMotor]=75;
+			}
+			motor[tiltingMotor]=0;
+			nMotorEncoder[tiltingMotor]=0;
+			motor[conveyorMotor] = -100;
 			wait10Msec(200);
-			conveyorBackward();
-			wait10Msec(200);
-			conveyorStop();
-			wait10Msec(100);
-			armDown();
-			wait10Msec(200);
+			motor[conveyorMotor] = 0;
+			wait10Msec(50);
+			int nTicksDown =0;
+			nTicksDown = ticksPerDegree2*120;
+			nMotorEncoder[tiltingMotor]=0;
+			while (abs(nMotorEncoder[tiltingMotor]) < nTicks)
+			{
+				motor[tiltingMotor]=-50;
+			}
+			motor[tiltingMotor]=0;
+			nMotorEncoder[tiltingMotor]=0;
+
 
 	moveForward(3, 80);
 	wait10Msec(50);

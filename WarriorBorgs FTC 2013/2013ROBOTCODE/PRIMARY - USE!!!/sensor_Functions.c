@@ -34,38 +34,31 @@ task irRightTesting()
 			wait10Msec(98.5);
 			stopMotors();
 			wait10Msec(30);
-			/*
-			motor[tiltingMotor] = 55;
-			wait10Msec(138);
-			motor[tiltingMotor] = 25;
-			wait10Msec(5);
-			motor[tiltingMotor] = 0;
-			wait10Msec(10);
-				motor[conveyorMotor] = 100;
-				wait10Msec(250);
-				motor[conveyorMotor] = 0;
-				wait10Msec(50);
-			motor[tiltingMotor] = -55;
-			wait10Msec(60);
-			motor[tiltingMotor] = -45;
-			wait10Msec(40);
-			motor[tiltingMotor] = 0;
-			wait10Msec(10);
-			stopMotors();
-			wait10Msec(100);
-			motor[frontLeftMotor] = 100;
-			motor[backLeftMotor] = 100;
-			motor[frontRightMotor] = 100;
-			motor[backRightMotor] = -100;*/
 
-			armUp();
+			int ticksPerDegree2 = 5760/360;
+			int nTicks =0;
+			nTicks= ticksPerDegree2*150;
+			nMotorEncoder[tiltingMotor]=0;
+			while (abs(nMotorEncoder[tiltingMotor]) < nTicks)
+			{
+				motor[tiltingMotor]=75;
+			}
+			motor[tiltingMotor]=0;
+			nMotorEncoder[tiltingMotor]=0;
+			motor[conveyorMotor] = -100;
 			wait10Msec(200);
-			conveyorBackward();
-			wait10Msec(200);
-			conveyorStop();
-			wait10Msec(100);
-			armDown();
-			wait10Msec(200);
+			motor[conveyorMotor] = 0;
+			wait10Msec(50);
+			int nTicksDown =0;
+			nTicksDown = ticksPerDegree2*120;
+			nMotorEncoder[tiltingMotor]=0;
+			while (abs(nMotorEncoder[tiltingMotor]) < nTicks)
+			{
+				motor[tiltingMotor]=-50;
+			}
+			motor[tiltingMotor]=0;
+			nMotorEncoder[tiltingMotor]=0;
+
 
 			rightTwoWheelTurn(90, 40);
 			wait10Msec(110);
@@ -98,32 +91,29 @@ task irLeftTesting()
 			stopMotors();
 			wait10Msec(30);
 
-			/*
-			motor[tiltingMotor] = 55;
-			wait10Msec(162);
-			motor[tiltingMotor] = 25;
-			wait10Msec(5);
-			motor[tiltingMotor] = 0;
-			wait10Msec(10);
-				motor[conveyorMotor] = 100;
-				wait10Msec(200);
-				motor[conveyorMotor] = 0;
-				wait10Msec(50);
-			motor[tiltingMotor] = -45;
-			wait10Msec(105);
-			motor[tiltingMotor] = -25;
-			wait10Msec(5);
-			motor[tiltingMotor] = 0;
-			wait10Msec(10);*/
-
-			armUp();
+			int ticksPerDegree2 = 5760/360;
+			int nTicks =0;
+			nTicks= ticksPerDegree2*150;
+			nMotorEncoder[tiltingMotor]=0;
+			while (abs(nMotorEncoder[tiltingMotor]) < nTicks)
+			{
+				motor[tiltingMotor]=75;
+			}
+			motor[tiltingMotor]=0;
+			nMotorEncoder[tiltingMotor]=0;
+			motor[conveyorMotor] = -100;
 			wait10Msec(200);
-			conveyorBackward();
-			wait10Msec(200);
-			conveyorStop();
-			wait10Msec(100);
-			armDown();
-			wait10Msec(200);
+			motor[conveyorMotor] = 0;
+			wait10Msec(50);
+			int nTicksDown =0;
+			nTicksDown = ticksPerDegree2*120;
+			nMotorEncoder[tiltingMotor]=0;
+			while (abs(nMotorEncoder[tiltingMotor]) < nTicks)
+			{
+				motor[tiltingMotor]=-50;
+			}
+			motor[tiltingMotor]=0;
+			nMotorEncoder[tiltingMotor]=0;
 
 			leftTwoWheelTurn(90, 80);
 			wait10Msec(95.5);
