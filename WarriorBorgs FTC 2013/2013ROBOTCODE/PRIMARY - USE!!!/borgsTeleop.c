@@ -35,8 +35,8 @@ task main()
 		motor[frontRightMotor] = ((100.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0));
 		motor[backRightMotor] = ((-100.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0)*(joystick.joy1_y1/127.0));
 		//two feeding motors controlled by the left joystick in controller two
-		motor[feedingMotorUno] = ((100.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0));
-		motor[feedingMotorDos] = ((100.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0));
+		motor[feedingMotorUno] = ((-100.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0));
+		motor[feedingMotorDos] = ((-100.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0)*(joystick.joy2_y1/127.0));
 		motor[conveyorMotor] = ((100.0)*(joystick.joy2_y2/127.0)*(joystick.joy2_y2/127.0)*(joystick.joy2_y2/127.0));
 		if(joy1Btn(6))
 		{
@@ -55,33 +55,17 @@ task main()
 		if(joystick.joy2_TopHat == 0)
 		{
 				motor[tiltingMotor]=80;
+				wait10Msec(100);
 		}
 		//tilting motor moves a little bit up when button two in controller two is pressed
 		else if(joystick.joy2_TopHat == 4)
 		{
 				motor[tiltingMotor]=-80;
+				wait10Msec(100);
 		}
 		else
 		{
 			motor[tiltingMotor] = 0;
-		}
-		if(joystick.joy2_TopHat == 2)
-		{
-			nMotorEncoder[flagPositionMotor]=0;
- 			while(nMotorEncoder[flagPositionMotor] <= 190)
- 			{
-				motor[flagPositionMotor]=35;
-			}
-			nMotorEncoder[flagPositionMotor]=0;
-		}
-		else if(joystick.joy2_TopHat == 6)
-		{
-			nMotorEncoder[flagPositionMotor]=0;
- 			while(nMotorEncoder[flagPositionMotor] <= 190)
- 			{
-				motor[flagPositionMotor]=-35;
-			}
-			nMotorEncoder[flagPositionMotor]=0;
 		}
 		else
 		{
@@ -120,7 +104,7 @@ task main()
 		if(joy2Btn(8))
 		{
 					int nTicks =0;
-			nTicks= ticksPerDegree*105;
+			nTicks= ticksPerDegree*107.5;
 			nMotorEncoder[tiltingMotor]=0;
 			while (abs(nMotorEncoder[tiltingMotor]) < nTicks )
 			{
