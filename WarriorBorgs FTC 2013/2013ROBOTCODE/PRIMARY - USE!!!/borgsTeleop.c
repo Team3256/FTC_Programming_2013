@@ -67,10 +67,6 @@ task main()
 		{
 			motor[tiltingMotor] = 0;
 		}
-		else
-		{
-				motor[flagPositionMotor]=0;
-		}
 		//the robot puts itself in the lifting position when button seven in controller one is pressed
 		if(joy1Btn(7) && joy1Btn(8))
 		{
