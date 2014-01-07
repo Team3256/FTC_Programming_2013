@@ -55,13 +55,13 @@ task main()
 		if(joystick.joy2_TopHat == 0)
 		{
 				motor[tiltingMotor]=80;
-				wait10Msec(10);
+				wait10Msec(30);
 		}
 		//tilting motor moves a little bit up when button two in controller two is pressed
 		else if(joystick.joy2_TopHat == 4)
 		{
 				motor[tiltingMotor]=-80;
-				wait10Msec(10);
+				wait10Msec(30);
 		}
 		else
 		{
@@ -186,7 +186,8 @@ task main()
 			wait10Msec(20);
 			motor[tiltingMotor] = 0;
 			wait10Msec(4);*/
-			motor[tiltingMotor] = -85;
+			motor[tiltingMotor] = -100;
+			wait10Msec(50);
 			/*int nTicks =0;
 			nTicks= ticksPerDegree*110;
 			nMotorEncoder[tiltingMotor]=0;
