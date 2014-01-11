@@ -14,7 +14,7 @@
 // it as is.
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
-//A Rishi Desai Production
+
 #if (defined(NXT) || defined(TETRIX)) && (_TARGET == "Robot") && !defined(NaturalLanguage)
 #pragma autoStartTasks        // Automatically start this task when the main user program starts.
 #elif (defined(VEX2) || defined(NXT) || defined(TETRIX)) && (_TARGET == "VirtWorld")
