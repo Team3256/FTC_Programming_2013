@@ -28,8 +28,8 @@ task irRightTesting()
 		{
 			stopMotors();
 			wait10Msec(40);
-			moveForward(4, 80);
-			wait10Msec(100);
+			/*moveForward(4, 80);
+			wait10Msec(100);*/
 			leftTwoWheelTurn(90, 80);
 			wait10Msec(98.5);
 			stopMotors();
@@ -59,13 +59,13 @@ task irRightTesting()
 			motor[backRightMotor] = -100;*/
 
 			armUp();
-			wait10Msec(200);
-			conveyorBackward();
-			wait10Msec(200);
-			conveyorStop();
+			wait10Msec(150);
+			conveyorForward();
 			wait10Msec(100);
+			conveyorStop();
+			wait10Msec(50);
 			armDown();
-			wait10Msec(200);
+			wait10Msec(150);
 
 			rightTwoWheelTurn(90, 40);
 			wait10Msec(110);

@@ -47,7 +47,7 @@ void armUp()
 {
 	int ticksPerDegree2 = 5760/360;
 	int nTicks =0;
-	nTicks= ticksPerDegree2*150;
+	nTicks= ticksPerDegree2*140;
 	nMotorEncoder[tiltingMotor]=0;
 	while (abs(nMotorEncoder[tiltingMotor]) < nTicks)
 	{
