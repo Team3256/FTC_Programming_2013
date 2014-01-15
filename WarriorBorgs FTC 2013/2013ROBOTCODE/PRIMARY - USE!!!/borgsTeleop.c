@@ -81,22 +81,7 @@ task main()
 		{
 			motor[liftingMotor] = 0;
 		}
-		/*
-		//the conveyor sucks in blocks
-		if(joy2Btn(7))
-		{
-			motor[conveyorMotor] = -100;
-		}
-		//the conveyor spits out blocks
-		else if(joy2Btn(5))
-		{
-			motor[conveyorMotor] = 100;
-		}
-		else
-		{
-			motor[conveyorMotor] = 0;
-		}
-		*/
+
 		if(joy2Btn(8))
 		{
 					int nTicks =0;
