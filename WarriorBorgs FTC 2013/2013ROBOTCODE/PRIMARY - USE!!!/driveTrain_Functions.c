@@ -42,6 +42,7 @@ void moveForward(float inchesMoved, int motorSpeed)
 			motor[backRightMotor] = motorSpeed;
 			motor[backLeftMotor] = motorSpeed;
 			motorSpeed -= 0.005;
+			//writeDebugStreamLine("%d", nMotorEncoder[backRightMotor]);
 	}
 	motor[frontRightMotor] = 0;
 	motor[frontLeftMotor] = 0;
@@ -116,7 +117,10 @@ void stopMotors()
 	motor[backLeftMotor] = 0;
 }
 
-
 /*task main()
 {
+	moveForward(10, 80);
+	wait10Msec(50);
+	stopMotors();
+	wait10Msec(50);
 }*/
