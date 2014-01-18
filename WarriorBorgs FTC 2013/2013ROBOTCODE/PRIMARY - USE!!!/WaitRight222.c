@@ -51,7 +51,7 @@ task main()
 
 			armUp();
 			wait10Msec(200);
-			conveyorBackward();
+			conveyorForward();
 			wait10Msec(200);
 			conveyorStop();
 			wait10Msec(100);

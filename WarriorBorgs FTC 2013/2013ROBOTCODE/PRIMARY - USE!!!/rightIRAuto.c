@@ -27,12 +27,12 @@ task main()
 	wait10Msec(50);
 	stopMotors();
 	wait10Msec(30);
-	leftTwoWheelTurn(50, 50);
-	wait10Msec(80);
+	leftTwoWheelTurn(80, 50);
+	wait10Msec(120);
 	stopMotors();
 	wait10Msec(30);
-	moveBackward(0.25, 80);
-	wait10Msec(50);
+	/*moveBackward(0.25, 80);
+	wait10Msec(50);*/
 	//robot moves backward, so it will be able to sense the ir beacon underneath first bucket
 	stopMotors();
 	wait10Msec(30);
@@ -49,19 +49,19 @@ task main()
 	}
 	stopMotors();
 	wait10Msec(30);
-	moveForward(8, 100);
+	moveForward(4.5, 100);
 	wait10Msec(50);
-	rightTwoWheelTurn(48, 80);
-	wait10Msec(60);
-	moveForward(25, 80);
+	rightTwoWheelTurn(60, 80);
+	wait10Msec(75);
+	moveForward(15, 80);
 	wait10Msec(50);
-	rightTwoWheelTurn(48, 50);
-	wait10Msec(58);
-	moveForward(28.5, 80);
+	rightTwoWheelTurn(60, 100);
+	wait10Msec(80);
+	moveForward(38, 100);
 	wait10Msec(50);
-	rightTwoWheelTurn(53, 50);
-	wait10Msec(128);
-	moveForward(43.5, 80);
+	rightTwoWheelTurn(53, 100);
+	wait10Msec(168);
+	moveForward(56, 80);
 	wait10Msec(50);
 	//robot is parked in the middle of the ramp
 }
