@@ -67,6 +67,29 @@ task main()
 		{
 			motor[tiltingMotor] = 0;
 		}
+
+		if(joy2Btn(5))
+		{
+			//nMotorEncoder[motorC] = 0;
+			//while (abs(nMotorEncoder[motorC]) < 90)
+			//{
+				motor[motorC] = -75;
+			//}
+			//motor[motorC] = 0;
+		}
+		else if (joy2Btn(7))
+		{
+			//nMotorEncoder[motorC] = 0;
+			//while (abs(nMotorEncoder[motorC]) < 90)
+			//{
+				motor[motorC] = 75;
+			//}
+			//motor[motorC] = 0;
+		}
+		else
+			motor[motorC] = 0;
+
+
 		//the robot puts itself in the lifting position when button seven in controller one is pressed
 		if(joy1Btn(7) && joy1Btn(8))
 		{
@@ -98,9 +121,9 @@ task main()
 			motor[tiltingMotor] = 0;
 
 		//the robot runs its flag motor to raise the flag, when button eight in controller two is pressed
-		if(joy2Btn(5))
+		if(joy1Btn(6))
 			motor[flagMotor] = 100;
-		else if(joy2Btn(7))
+		else if(joy1Btn(8))
 			motor[flagMotor] = -100;
 		else
 			motor[flagMotor] = 0;
@@ -147,7 +170,7 @@ task main()
 	  else if(joy2Btn(2))
 	  {
 	  	/*motor[tiltingMotor] = 75;
-			wait10Msec(90);
+			wait1c0Msec(90);
 			motor[tiltingMotor] = 25;
 			wait10Msec(7);
 			motor[tiltingMotor] = 0;
@@ -172,7 +195,7 @@ task main()
 			motor[tiltingMotor] = 0;
 			wait10Msec(4);*/
 			motor[tiltingMotor] = -100;
-			wait10Msec(50);
+			wait10Msec(35);
 			/*int nTicks =0;
 			nTicks= ticksPerDegree*110;
 			nMotorEncoder[tiltingMotor]=0;
