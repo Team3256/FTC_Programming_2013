@@ -28,10 +28,10 @@ task irRightTesting()
 		{
 			stopMotors();
 			wait10Msec(40);
-			moveForward(1, 80);
+			moveForward(4.5, 80);
 			wait10Msec(100);
 			leftTwoWheelTurn(90, 80);
-			wait10Msec(113);
+			wait10Msec(98);
 			stopMotors();
 			wait10Msec(30);
 			/*
@@ -58,17 +58,44 @@ task irRightTesting()
 			motor[frontRightMotor] = 100;
 			motor[backRightMotor] = -100;*/
 
-			armUp();
+			/*armUp();
 			wait10Msec(100);
 			conveyorForward();
 			wait10Msec(150);
 			conveyorStop();
 			wait10Msec(50);
 			armDown();
-			wait10Msec(150);
+			wait10Msec(150);*/
+
+			int ticksPerDegree2 = 5760/360;
+			int nTicks =0;
+			nTicks= ticksPerDegree2*143;
+			nMotorEncoder[tiltingMotor]=0;
+			while (abs(nMotorEncoder[tiltingMotor]) < nTicks)
+			{
+				motor[tiltingMotor]=75;
+			}
+			motor[tiltingMotor]=0;
+			nMotorEncoder[tiltingMotor]=0;
+
+			conveyorForward();
+			wait10Msec(120);
+			conveyorStop();
+			wait10Msec(100);
+
+		int ticksPerDegree3 = 5760/360;
+		int nTicks3 =0;
+		nTicks3= ticksPerDegree3*136;
+		nMotorEncoder[tiltingMotor]=0;
+		while (abs(nMotorEncoder[tiltingMotor]) < nTicks3)
+		{
+			motor[tiltingMotor]=-50;
+		}
+		motor[tiltingMotor]=0;
+		nMotorEncoder[tiltingMotor]=0;
 
 			rightTwoWheelTurn(98, 40);
-			wait10Msec(187);
+			wait10Msec(148);
 			stopMotors();
 			wait10Msec(100);
 			break;

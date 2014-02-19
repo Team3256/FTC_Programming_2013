@@ -98,9 +98,9 @@ task main()
 			motor[tiltingMotor] = 0;
 
 		//the robot runs its flag motor to raise the flag, when button eight in controller two is pressed
-		if(joy1Btn(1))
+		if(joy2Btn(5))
 			motor[flagMotor] = 100;
-		else if(joy1Btn(2))
+		else if(joy2Btn(7))
 			motor[flagMotor] = -100;
 		else
 			motor[flagMotor] = 0;
